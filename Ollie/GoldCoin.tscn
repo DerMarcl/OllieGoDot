@@ -1,0 +1,63 @@
+[gd_scene load_steps=12 format=3 uid="uid://bu10yqrx5m5uj"]
+
+[ext_resource type="Script" path="res://GoldCoin.gd" id="1_6jlun"]
+[ext_resource type="Texture2D" uid="uid://dvcolr2aue6ct" path="res://Free/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="2_srr0q"]
+[ext_resource type="Texture2D" uid="uid://gupnm3ubi611" path="res://Free/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/02.png" id="3_0868f"]
+[ext_resource type="Texture2D" uid="uid://co8vcbambyphl" path="res://Free/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/03.png" id="4_yjcet"]
+[ext_resource type="Texture2D" uid="uid://c3tia14m0hfgr" path="res://Free/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/04.png" id="5_32ltx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xrlw"]
+atlas = ExtResource("2_srr0q")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gtr7"]
+atlas = ExtResource("3_0868f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4yji"]
+atlas = ExtResource("4_yjcet")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfvgc"]
+atlas = ExtResource("5_32ltx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hw087"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xrlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gtr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4yji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfvgc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2dul"]
+radius = 24.0
+
+[node name="GoldCoin" type="Area2D"]
+script = ExtResource("1_6jlun")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4.5, -0.250001)
+scale = Vector2(4.8125, 4.15625)
+sprite_frames = SubResource("SpriteFrames_hw087")
+autoplay = "default"
+frame_progress = 0.628481
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_g2dul")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
