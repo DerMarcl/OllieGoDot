@@ -18,5 +18,5 @@ func decrease_healh():
 			hearts[h].show()
 		else:
 			hearts[h].hide()
-	if(lives == 0):
+	if(lives <= 0):
 		get_tree().reload_current_scene()

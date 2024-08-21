@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 
-const SPEED = 600.0
+const SPEED = 400.0
 const JUMP_VELOCITY = -900.0
 
 const ACCELERATION_TIME = 0.04 # time to reach full speed on the ground
 const DECELERATION_TIME = 0.04 # time to fully stop on the ground
 const AIR_INERTIA_MULTIPLIER = 3.0 # inertia multiplier when in the air
 const COYOTE_TIME = 0.2 # time in seconds to allow jumping after leaving the ground
-const WALLJUMP_GRACE = 0.2 #time after walljump where pressing the opposite way doesnt do anything
+const WALLJUMP_GRACE = 0.3 #time after walljump where pressing the opposite way doesnt do anything
 
 @onready var sprite_2d = $Sprite2D
 
@@ -23,6 +23,9 @@ var has_backwards_walljump = true
 
 var coyote_timer = 0.0 # tracks how long we've been off the ground
 var grace_timer = 0.0 # tracks how long since last wall jump
+var in_portal = false #track if the player is in the portal area
+
+var current_portal: Area2D = null
 
 func jump():
 	velocity.y = JUMP_VELOCITY
@@ -38,6 +41,7 @@ func _physics_process(delta):
 	var adjusted_acceleration = acceleration / inertia_multiplier
 	var adjusted_deceleration = deceleration / inertia_multiplier
 	
+	var wallslide = is_on_wall_only() and (has_walljump or has_backwards_walljump)
 	# Handle coyote time
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME # Reset the coyote timer if on the ground
@@ -61,6 +65,8 @@ func _physics_process(delta):
 		if velocity.y >= 1000:
 			velocity.y = 1000
 		sprite_2d.animation = "jumping"
+		if velocity.y >= 300 and wallslide:
+			velocity.y = 300
 	else:
 		has_backwards_walljump = true
 	
@@ -70,7 +76,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		coyote_timer = 0.0 # Reset the coyote timer after a jump
 		
-		if is_on_wall_only() and (has_walljump or has_backwards_walljump):
+		if wallslide:
 			velocity.x = -direction * SPEED 
 			sprite_2d.flip_h = (velocity.x < 0)
 			has_backwards_walljump = false
@@ -90,3 +96,8 @@ func _physics_process(delta):
 	if velocity.x != 0 and is_on_floor():
 		var isLeft = velocity.x < 0
 		sprite_2d.flip_h = isLeft 
+	
+
+	if in_portal and Input.is_action_just_pressed("up"):
+		current_portal.level_transition()
+		

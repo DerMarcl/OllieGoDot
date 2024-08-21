@@ -39,6 +39,6 @@ offset_bottom = 488.0
 theme_override_font_sizes/font_size = 38
 text = "Level 2"
 
-[connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Level1" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Level2" to="." method="_on_level_2_pressed"]
