@@ -98,6 +98,6 @@ func _physics_process(delta):
 		sprite_2d.flip_h = isLeft 
 	
 
-	if in_portal and Input.is_action_just_pressed("up"):
+	if in_portal and Input.is_action_just_pressed("up") and is_on_floor():
 		current_portal.level_transition()
 		
