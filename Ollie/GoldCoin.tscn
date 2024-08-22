@@ -1,25 +1,25 @@
 [gd_scene load_steps=12 format=3 uid="uid://bu10yqrx5m5uj"]
 
 [ext_resource type="Script" path="res://GoldCoin.gd" id="1_6jlun"]
-[ext_resource type="Texture2D" uid="uid://dvcolr2aue6ct" path="res://Free/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="2_srr0q"]
-[ext_resource type="Texture2D" uid="uid://gupnm3ubi611" path="res://Free/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/02.png" id="3_0868f"]
-[ext_resource type="Texture2D" uid="uid://co8vcbambyphl" path="res://Free/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/03.png" id="4_yjcet"]
-[ext_resource type="Texture2D" uid="uid://c3tia14m0hfgr" path="res://Free/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/04.png" id="5_32ltx"]
+[ext_resource type="Texture2D" uid="uid://dvcolr2aue6ct" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="2_ewmmd"]
+[ext_resource type="Texture2D" uid="uid://gupnm3ubi611" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/02.png" id="3_d2ify"]
+[ext_resource type="Texture2D" uid="uid://co8vcbambyphl" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/03.png" id="4_mvte7"]
+[ext_resource type="Texture2D" uid="uid://c3tia14m0hfgr" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/04.png" id="5_ycggg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xrlw"]
-atlas = ExtResource("2_srr0q")
+atlas = ExtResource("2_ewmmd")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2gtr7"]
-atlas = ExtResource("3_0868f")
+atlas = ExtResource("3_d2ify")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4yji"]
-atlas = ExtResource("4_yjcet")
+atlas = ExtResource("4_mvte7")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfvgc"]
-atlas = ExtResource("5_32ltx")
+atlas = ExtResource("5_ycggg")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hw087"]
