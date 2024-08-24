@@ -27,6 +27,15 @@ var in_portal = false #track if the player is in the portal area
 
 var current_portal: Area2D = null
 
+# Powerup list
+enum PossiblePowers {
+	NORMAL,
+	PIRATE,
+	CAVEMAN
+}
+
+var power_state: PossiblePowers = PossiblePowers.NORMAL
+
 func jump():
 	velocity.y = JUMP_VELOCITY
 func jump_slide(x):
@@ -101,3 +110,6 @@ func _physics_process(delta):
 	if in_portal and Input.is_action_just_pressed("up") and is_on_floor():
 		current_portal.level_transition()
 		
+func powerStateChange(new_power_state : PossiblePowers):
+	power_state = new_power_state
+	print("PowerUp")
