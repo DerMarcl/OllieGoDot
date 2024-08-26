@@ -23,7 +23,7 @@ func _physics_process(delta):
 	else:
 		velocity.y += gravity * delta
 		
-	if is_moving and hit_ground:
+	if is_moving and (is_floating or hit_ground):
 		velocity.x = speed * direction
 	else:
 		velocity.x = 0

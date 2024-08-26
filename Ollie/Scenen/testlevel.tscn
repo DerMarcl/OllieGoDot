@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://vjd6lfvw1wmm"]
+[gd_scene load_steps=19 format=3 uid="uid://vjd6lfvw1wmm"]
 
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="1_p6d7b"]
 [ext_resource type="Texture2D" uid="uid://l8ayrglej43f" path="res://Free/Terrain/Terrain (16x16).png" id="2_gkgb0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://game_manager.gd" id="5_jyfnp"]
 [ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Portal_Goal.tscn" id="6_jrohl"]
 [ext_resource type="PackedScene" uid="uid://cka2otmfgkpt4" path="res://Scenen/level2.tscn" id="6_sq1de"]
+[ext_resource type="Script" path="res://Scenen/Main_Scene.gd" id="8_7bxpl"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="8_qpw2p"]
 [ext_resource type="PackedScene" uid="uid://c30rvy2n3ucc6" path="res://wood_enemy.tscn" id="9_68vtk"]
 [ext_resource type="Script" path="res://Scenen/Pause.gd" id="9_nc2e4"]
@@ -538,6 +539,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("8_7bxpl")
 
 [node name="Panel" type="Panel" parent="UI"]
 offset_left = 15.0
@@ -673,10 +675,10 @@ position = Vector2(1005, 437)
 [node name="Red Potion" parent="." instance=ExtResource("12_at8x0")]
 position = Vector2(946, -352)
 is_moving = false
+is_floating = true
 
 [node name="Red Potion2" parent="." instance=ExtResource("12_at8x0")]
-position = Vector2(59, 256)
-is_moving = false
+position = Vector2(58, 296)
 
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]

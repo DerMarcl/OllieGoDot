@@ -20,4 +20,5 @@ func _on_body_exited(body):
 		body.current_portal = null
 
 func level_transition():
+	Global.cur_coins = 0
 	get_tree().change_scene_to_packed(target_level)

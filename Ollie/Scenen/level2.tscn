@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cka2otmfgkpt4"]
+[gd_scene load_steps=11 format=3 uid="uid://cka2otmfgkpt4"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_juhog"]
 [ext_resource type="Texture2D" uid="uid://bcpjqgpygvsdr" path="res://Free/Background/Brown.png" id="2_18hnn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Portal_Goal.tscn" id="5_i0yb7"]
 [ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://GoldCoin.tscn" id="6_ci6b4"]
 [ext_resource type="PackedScene" uid="uid://b0hc1cigwuqq1" path="res://Scenen/main_menu.tscn" id="6_l3fhi"]
+[ext_resource type="Script" path="res://Scenen/Main_Scene.gd" id="7_ssos7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("3_l2dbe")
@@ -502,6 +503,7 @@ on_touch_transition = false
 [node name="Collectables" type="Node" parent="SceneObjects"]
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("7_ssos7")
 
 [node name="Panel" type="Panel" parent="UI"]
 offset_left = 15.0

@@ -13,4 +13,8 @@ func _process(_delta):
 
 func _on_body_entered(body):
 	if (body.name == "Ollie"):
-		get_tree().reload_current_scene()
+		Global.lives = 3
+		call_deferred("reload_scene")
+
+func reload_scene():
+	GameManager.respawn()
