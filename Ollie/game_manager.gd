@@ -36,5 +36,6 @@ func respawn():
 	Global.cur_coins = 0
 	Global.lives = 3
 	
+
 	
 

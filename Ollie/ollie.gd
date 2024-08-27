@@ -16,6 +16,8 @@ const WALLJUMP_GRACE = 0.3 #time after walljump where pressing the opposite way 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var direction
+var cur_direction = 1
 var acceleration = SPEED / ACCELERATION_TIME
 var deceleration = SPEED / DECELERATION_TIME
 var has_walljump = false
@@ -61,7 +63,7 @@ func _physics_process(delta):
 		sprite_2d.animation = "running"
 	else:
 		sprite_2d.animation = "default"
-	var direction = Input.get_axis("left", "right")
+	direction = Input.get_axis("left", "right")
 	# Add the gravity.
 	
 	if is_on_wall_only() and ((direction < 0 and sprite_2d.flip_h) or (direction > 0 and not sprite_2d.flip_h)):
@@ -79,15 +81,18 @@ func _physics_process(delta):
 	else:
 		has_backwards_walljump = true
 	
+	if power_state == PossiblePowers.PIRATE and Input.is_action_just_pressed("action"):
+		shoot_bullet()
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and ((is_on_floor() or coyote_timer > 0.0) or (is_on_wall_only() and direction and (has_walljump or has_backwards_walljump))):
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY 
 		coyote_timer = 0.0 # Reset the coyote timer after a jump
 		
 		if wallslide:
 			velocity.x = -direction * SPEED 
 			sprite_2d.flip_h = (velocity.x < 0)
+			cur_direction = direction
 			has_backwards_walljump = false
 			grace_timer = WALLJUMP_GRACE
 			
@@ -105,11 +110,27 @@ func _physics_process(delta):
 	if velocity.x != 0 and is_on_floor():
 		var isLeft = velocity.x < 0
 		sprite_2d.flip_h = isLeft 
+		cur_direction = direction
 	
 
 	if in_portal and Input.is_action_just_pressed("up") and is_on_floor():
 		current_portal.level_transition()
 		
+	if sprite_2d.flip_h:
+		cur_direction = -1
+	else:
+		cur_direction = 1
+		
 func powerStateChange(new_power_state : PossiblePowers):
 	power_state = new_power_state
 	print("PowerUp")
+
+
+
+func shoot_bullet():
+	var BulletShotScene = load("res://bullet_shot.tscn")
+	var Bullet = BulletShotScene.instantiate()
+	Bullet.global_position = global_position
+	
+	Bullet.direction = cur_direction
+	get_parent().add_child(Bullet)
