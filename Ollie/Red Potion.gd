@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var is_moving : bool = true
 @export var is_floating : bool = false
 @export var speed : int = 100
+@export var gives_powerup: GameManager.PossiblePowers = GameManager.PossiblePowers.NORMAL
 @onready var sprite_2d = $Sprite2D
 
 var direction = -1
@@ -30,7 +31,7 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if(body.name == "Ollie"):
-		body.powerStateChange(body.PossiblePowers.PIRATE)
+		body.powerStateChange(gives_powerup)
 		queue_free()
 	else:
 		direction *= -1

@@ -5,6 +5,12 @@ extends Node
 
 var main_scene = null
 
+enum PossiblePowers {
+	NORMAL,
+	PIRATE,
+	CAVEMAN
+}
+
 func set_main_scene(scene):
 	main_scene = scene
 

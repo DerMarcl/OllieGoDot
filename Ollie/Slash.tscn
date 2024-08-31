@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5l6k3kc541ki"]
+
+[ext_resource type="Script" path="res://Slash.gd" id="1_jvlxu"]
+[ext_resource type="Texture2D" uid="uid://b4b8ighakslb4" path="res://AssetPacks/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/25-Attack 2/Attack 2 01.png" id="2_vmna4"]
+[ext_resource type="Texture2D" uid="uid://byrljck4wraau" path="res://AssetPacks/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/25-Attack 2/Attack 2 02.png" id="3_vb08r"]
+[ext_resource type="Texture2D" uid="uid://d0y6uci4evwsa" path="res://AssetPacks/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/25-Attack 2/Attack 2 03.png" id="4_muw6e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ndrf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vmna4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vb08r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_muw6e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a63yq"]
+size = Vector2(82, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7wyt"]
+size = Vector2(98, 95)
+
+[node name="Slash_Wave" type="Area2D"]
+script = ExtResource("1_jvlxu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(49, 12.3529)
+scale = Vector2(2.57895, 2.57552)
+sprite_frames = SubResource("SpriteFrames_7ndrf")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48, 30)
+shape = SubResource("RectangleShape2D_a63yq")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(49, 12.5)
+shape = SubResource("RectangleShape2D_u7wyt")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

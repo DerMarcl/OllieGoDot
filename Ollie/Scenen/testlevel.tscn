@@ -673,12 +673,11 @@ position = Vector2(1795, 435)
 position = Vector2(1005, 437)
 
 [node name="Red Potion" parent="." instance=ExtResource("12_at8x0")]
-position = Vector2(946, -352)
-is_moving = false
-is_floating = true
+position = Vector2(68, 362)
+gives_powerup = 2
 
 [node name="Red Potion2" parent="." instance=ExtResource("12_at8x0")]
-position = Vector2(58, 296)
+position = Vector2(-202, 897)
 
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]

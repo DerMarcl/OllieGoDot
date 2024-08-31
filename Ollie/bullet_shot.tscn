@@ -4,27 +4,27 @@
 [ext_resource type="Texture2D" uid="uid://bf412ehfuaqkl" path="res://AssetPacks/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Idle/1.png" id="2_wsls6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1e8q"]
-radius = 19.0
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ailod"]
-radius = 33.0606
+radius = 11.0
 
 [node name="bullet_Power_up" type="Area2D"]
 script = ExtResource("1_10bln")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -31)
-scale = Vector2(3.625, 3.625)
+position = Vector2(0, -11)
+scale = Vector2(1.4375, 1.4375)
 texture = ExtResource("2_wsls6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -28)
+position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_a1e8q")
 
 [node name="hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(-2, -28)
+position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_ailod")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

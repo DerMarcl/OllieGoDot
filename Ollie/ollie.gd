@@ -29,20 +29,16 @@ var in_portal = false #track if the player is in the portal area
 
 var current_portal: Area2D = null
 
-# Powerup list
-enum PossiblePowers {
-	NORMAL,
-	PIRATE,
-	CAVEMAN
-}
-
-var power_state: PossiblePowers = PossiblePowers.NORMAL
+var power_state: GameManager.PossiblePowers = GameManager.PossiblePowers.NORMAL
 
 func jump():
 	velocity.y = JUMP_VELOCITY
 func jump_slide(x):
 	velocity.y = JUMP_VELOCITY
 	velocity.x = x
+
+func _on_ready():
+	power_state = Global.cur_power
 
 func _physics_process(delta):
 	var is_in_air = not is_on_floor()
@@ -81,8 +77,12 @@ func _physics_process(delta):
 	else:
 		has_backwards_walljump = true
 	
-	if power_state == PossiblePowers.PIRATE and Input.is_action_just_pressed("action"):
-		shoot_bullet()
+	
+	if power_state != GameManager.PossiblePowers.NORMAL and Input.is_action_just_pressed("action"):
+		if power_state == GameManager.PossiblePowers.PIRATE:
+			shoot_bullet()
+		if power_state == GameManager.PossiblePowers.CAVEMAN:
+			club_slash()
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and ((is_on_floor() or coyote_timer > 0.0) or (is_on_wall_only() and direction and (has_walljump or has_backwards_walljump))):
@@ -121,8 +121,9 @@ func _physics_process(delta):
 	else:
 		cur_direction = 1
 		
-func powerStateChange(new_power_state : PossiblePowers):
+func powerStateChange(new_power_state : GameManager.PossiblePowers):
 	power_state = new_power_state
+	Global.cur_power = new_power_state
 	print("PowerUp")
 
 
@@ -134,3 +135,12 @@ func shoot_bullet():
 	
 	Bullet.direction = cur_direction
 	get_parent().add_child(Bullet)
+	
+func club_slash():
+	var SlashScene = load("res://Slash.tscn")
+	var Slash = SlashScene.instantiate()
+	Slash.global_position = global_position
+	
+	Slash.direction = cur_direction
+	get_parent().add_child(Slash)
+
