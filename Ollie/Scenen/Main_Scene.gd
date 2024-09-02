@@ -1,6 +1,6 @@
 extends Node
 
-@onready var coins_label = $"../UI/Panel/CoinsLabel"
+@onready var coins_label = $Panel/CoinsLabel
 
 func _ready():
 	GameManager.set_main_scene(self)
