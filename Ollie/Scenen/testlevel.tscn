@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://l8ayrglej43f" path="res://Free/Terrain/Terrain (16x16).png" id="2_gkgb0"]
 [ext_resource type="PackedScene" uid="uid://daruyvrj422vn" path="res://ollie.tscn" id="3_hc8y2"]
 [ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://GoldCoin.tscn" id="4_osa7g"]
+[ext_resource type="PackedScene" uid="uid://bbg026mn2ud0y" path="res://Scenen/LevelOverworld.tscn" id="5_fvs1w"]
 [ext_resource type="Script" path="res://game_manager.gd" id="5_jyfnp"]
 [ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Portal_Goal.tscn" id="6_jrohl"]
-[ext_resource type="PackedScene" uid="uid://cka2otmfgkpt4" path="res://Scenen/level2.tscn" id="6_sq1de"]
 [ext_resource type="Script" path="res://Scenen/Main_Scene.gd" id="8_7bxpl"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="8_qpw2p"]
 [ext_resource type="PackedScene" uid="uid://c30rvy2n3ucc6" path="res://wood_enemy.tscn" id="9_68vtk"]
@@ -510,7 +510,7 @@ layer_0/tile_data = PackedInt32Array(786432, 458752, 0, 851968, 458752, 1, 78643
 
 [node name="Area2D" parent="SceneObjects" instance=ExtResource("6_jrohl")]
 position = Vector2(2594, 170)
-target_level = ExtResource("6_sq1de")
+target_level = ExtResource("5_fvs1w")
 on_touch_transition = false
 
 [node name="Collectables" type="Node" parent="SceneObjects"]

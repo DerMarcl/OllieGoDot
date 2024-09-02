@@ -42,6 +42,14 @@ func respawn():
 	Global.cur_coins = 0
 	Global.lives = 3
 	
+func levelselector(level_id: int):
+	match level_id:
+		1:
+			get_tree().change_scene_to_file("res://Scenen/TestLevels/testlevel.tscn")
+		2:
+			get_tree().change_scene_to_file("res://Scenen/TestLevels/level2.tscn")
+		_:
+			get_tree().change_scene_to_file("res://Scenen/main_menu.tscn")
 
 	
 

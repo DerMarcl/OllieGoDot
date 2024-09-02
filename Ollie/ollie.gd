@@ -37,8 +37,25 @@ func jump_slide(x):
 	velocity.y = JUMP_VELOCITY
 	velocity.x = x
 
-func _on_ready():
+func _ready():
 	power_state = Global.cur_power
+	#call_deferred("_find_spawn_container")
+
+func _find_spawn_container():
+	var scene_objects = get_tree().current_scene.get_node("SceneObjects")
+	var spawn_container = scene_objects.get_node("Portals_and_Spawns")
+
+	if spawn_container == null:
+		print("Portals_and_Spawns node not found!")
+	else:
+		print("Found Portals_and_Spawns node: ", spawn_container)
+
+	var spawn_points = spawn_container.get_children()
+
+	for spawn_point in spawn_points:
+		if spawn_point is SpawnPoint and spawn_point.spawn_index == Global.target_spawnpoint:
+			position = spawn_point.global_position
+			break
 
 func _physics_process(delta):
 	var is_in_air = not is_on_floor()
@@ -143,4 +160,6 @@ func club_slash():
 	
 	Slash.direction = cur_direction
 	get_parent().add_child(Slash)
+	
+
 
