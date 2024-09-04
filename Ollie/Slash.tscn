@@ -32,6 +32,7 @@ size = Vector2(98, 95)
 script = ExtResource("1_jvlxu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(49, 12.3529)
 scale = Vector2(2.57895, 2.57552)
 sprite_frames = SubResource("SpriteFrames_7ndrf")
