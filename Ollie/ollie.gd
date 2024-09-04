@@ -44,11 +44,7 @@ func _ready():
 func _find_spawn_container():
 	var scene_objects = get_tree().current_scene.get_node("SceneObjects")
 	var spawn_container = scene_objects.get_node("Portals_and_Spawns")
-	
-	if spawn_container == null:
-		print("Portals_and_Spawns node not found!")
-	else:
-		print("Found Portals_and_Spawns node: ", spawn_container)
+
 	
 	var spawn_points = spawn_container.get_children()
 
