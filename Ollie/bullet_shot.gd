@@ -7,7 +7,8 @@ var direction = -1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("hitbox")
-
+	if direction < 0:
+		global_position -= Vector2(50, 0)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position.x += speed * delta * direction

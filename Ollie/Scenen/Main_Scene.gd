@@ -8,3 +8,5 @@ func _ready():
 
 func update_coins_label():
 	coins_label.text = "Coins: " + str(Global.coins)
+
+

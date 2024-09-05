@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cka2otmfgkpt4"]
+[gd_scene load_steps=16 format=3 uid="uid://cka2otmfgkpt4"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_juhog"]
 [ext_resource type="Texture2D" uid="uid://bcpjqgpygvsdr" path="res://Free/Background/Brown.png" id="2_18hnn"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://lo6rj8ytakga" path="res://spawn_point.tscn" id="6_wl60i"]
 [ext_resource type="Script" path="res://Scenen/Main_Scene.gd" id="7_ssos7"]
 [ext_resource type="PackedScene" uid="uid://c30rvy2n3ucc6" path="res://wood_enemy.tscn" id="9_0nvlg"]
+[ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="10_2bepk"]
+[ext_resource type="Script" path="res://Scenen/Pause.gd" id="11_d67m1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("3_l2dbe")
@@ -467,11 +469,17 @@ texture = ExtResource("3_l2dbe")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rw3bd")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1001s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3tfx"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Node" type="Node"]
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
 unique_name_in_owner = true
 script = ExtResource("1_juhog")
+hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart"), NodePath("../UI/Hearts/HBoxContainer/Heart2"), NodePath("../UI/Hearts/HBoxContainer/Heart3")]
 
 [node name="SceneObjects" type="Node" parent="."]
 
@@ -524,26 +532,6 @@ spawn_index = 1
 position = Vector2(2445, 448)
 spawn_index = 2
 
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("7_ssos7")
-
-[node name="Panel" type="Panel" parent="UI"]
-offset_left = 15.0
-offset_top = 15.0
-offset_right = 241.0
-offset_bottom = 128.0
-
-[node name="CoinsLabel" type="Label" parent="UI/Panel"]
-unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 0
-offset_right = 227.0
-offset_bottom = 114.0
-theme_override_font_sizes/font_size = 30
-text = "Coins: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="GoldCoin" parent="." instance=ExtResource("6_ci6b4")]
 position = Vector2(656, 449)
 
@@ -558,3 +546,121 @@ position = Vector2(2205, 388)
 
 [node name="Wood-Enemy" parent="." instance=ExtResource("9_0nvlg")]
 position = Vector2(363, 530)
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("7_ssos7")
+
+[node name="Panel" type="Panel" parent="UI"]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 241.0
+offset_bottom = 128.0
+
+[node name="CoinsLabel" type="Label" parent="UI/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 227.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 30
+text = "Coins: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hearts" type="Panel" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -262.0
+offset_top = 20.0
+offset_right = -4.0
+offset_bottom = 98.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1001s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Hearts"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 257.0
+offset_bottom = 75.0
+alignment = 1
+
+[node name="Heart" type="TextureRect" parent="UI/Hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("10_2bepk")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="UI/Hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("10_2bepk")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="UI/Hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("10_2bepk")
+expand_mode = 2
+
+[node name="Pause" type="Node" parent="UI"]
+script = ExtResource("11_d67m1")
+
+[node name="PausePanel" type="Panel" parent="UI/Pause"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/Pause/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -109.0
+offset_right = 179.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "PAUSIERT"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -239.0
+offset_top = -20.0
+offset_right = 248.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Resume" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_p3tfx")
+text = "Zurück"
+
+[node name="MainMenu" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_p3tfx")
+text = "Hauptmenü"
+
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]

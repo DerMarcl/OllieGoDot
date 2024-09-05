@@ -22,6 +22,7 @@ var acceleration = SPEED / ACCELERATION_TIME
 var deceleration = SPEED / DECELERATION_TIME
 var has_walljump = false
 var has_backwards_walljump = true
+var does_spcial_action = false
 
 var coyote_timer = 0.0 # tracks how long we've been off the ground
 var grace_timer = 0.0 # tracks how long since last wall jump
@@ -40,6 +41,7 @@ func jump_slide(x):
 func _ready():
 	power_state = Global.cur_power
 	call_deferred("_find_spawn_container")
+	$hitbox_Timer_Bonk.one_shot = true
 	
 func _find_spawn_container():
 	var scene_objects = get_tree().current_scene.get_node("SceneObjects")
@@ -68,11 +70,33 @@ func _physics_process(delta):
 	else:
 		coyote_timer = max(coyote_timer - delta, 0) # Decrease the timer if in the air
 	
-	if (velocity.x > 1 || velocity.x < -1):
-		sprite_2d.animation = "running"
-	else:
-		sprite_2d.animation = "default"
 	direction = Input.get_axis("left", "right")
+	
+	#animation corner:
+	if not does_spcial_action:
+		match power_state:
+			GameManager.PossiblePowers.NORMAL:
+				if not is_on_floor():
+					sprite_2d.animation = "jumping"
+				elif (velocity.x > 1 || velocity.x < -1):
+					sprite_2d.animation = "running"
+				else:
+					sprite_2d.animation = "default"
+				
+			GameManager.PossiblePowers.PIRATE:
+				if not is_on_floor():
+					sprite_2d.animation = "Pirate_jump"
+				elif (velocity.x > 1 || velocity.x < -1):
+					sprite_2d.animation = "Pirate_run"
+				else:
+					sprite_2d.animation = "Pirate_idle"
+			GameManager.PossiblePowers.CAVEMAN:
+				if not is_on_floor():
+					sprite_2d.animation = "Caveman_jump"
+				elif (velocity.x > 1 || velocity.x < -1):
+					sprite_2d.animation = "Caveman_run"
+				else:
+					sprite_2d.animation = "Caveman_idle"
 	# Add the gravity.
 	
 	if is_on_wall_only() and ((direction < 0 and sprite_2d.flip_h) or (direction > 0 and not sprite_2d.flip_h)):
@@ -84,7 +108,6 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		if velocity.y >= 1000:
 			velocity.y = 1000
-		sprite_2d.animation = "jumping"
 		if velocity.y >= 300 and wallslide:
 			velocity.y = 300
 	else:
@@ -94,11 +117,11 @@ func _physics_process(delta):
 	if power_state != GameManager.PossiblePowers.NORMAL and Input.is_action_just_pressed("action"):
 		if power_state == GameManager.PossiblePowers.PIRATE:
 			shoot_bullet()
-		if power_state == GameManager.PossiblePowers.CAVEMAN:
+		if power_state == GameManager.PossiblePowers.CAVEMAN and not does_spcial_action:
 			club_slash()
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and ((is_on_floor() or coyote_timer > 0.0) or (is_on_wall_only() and direction and (has_walljump or has_backwards_walljump))):
+	if Input.is_action_just_pressed("jump") and not does_spcial_action and ((is_on_floor() or coyote_timer > 0.0) or (is_on_wall_only() and direction and (has_walljump or has_backwards_walljump))):
 		velocity.y = JUMP_VELOCITY 
 		coyote_timer = 0.0 # Reset the coyote timer after a jump
 		
@@ -114,8 +137,10 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	grace_timer = max(grace_timer - delta, 0)
 	if grace_timer == 0:
-		if direction:
+		if direction and not does_spcial_action:
 			velocity.x = move_toward(velocity.x, direction * SPEED, adjusted_acceleration * delta)
+		elif does_spcial_action:
+			velocity.x = move_toward(velocity.x, 0, adjusted_deceleration * delta * 0.3)
 		else:
 			velocity.x = move_toward(velocity.x, 0, adjusted_deceleration * delta)
 	move_and_slide()
@@ -151,10 +176,22 @@ func shoot_bullet():
 	get_parent().add_child(Bullet)
 	
 func club_slash():
+	print("smash")
+	$hitbox_Timer_Bonk.start()
+	does_spcial_action = true
+	sprite_2d.animation = "BigBonk"
+
+func _on_sprite_2d_animation_looped():
+	if sprite_2d.animation == "BigBonk":
+		does_spcial_action = false
+
+func _on_hitbox_timer_bonk_timeout():
+	print("timeout")
 	var SlashScene = load("res://Slash.tscn")
 	var Slash = SlashScene.instantiate()
 	Slash.global_position = global_position
 	
 	Slash.direction = cur_direction
 	get_parent().add_child(Slash)
+
 

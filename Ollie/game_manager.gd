@@ -29,6 +29,7 @@ func set_coins(new_coins : int):
 func decrease_healh():
 	Global.lives -= 1
 	print(Global.lives)
+	
 	for h in 3:
 		if(h < Global.lives):
 			hearts[h].show()

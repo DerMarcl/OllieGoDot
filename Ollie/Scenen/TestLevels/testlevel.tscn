@@ -710,6 +710,11 @@ position = Vector2(868, -338)
 is_moving = false
 gives_powerup = 2
 
+[node name="Red Potion3" parent="." instance=ExtResource("12_at8x0")]
+position = Vector2(318, 280)
+is_moving = false
+gives_powerup = 2
+
 [node name="Bonk_Box" parent="." instance=ExtResource("14_lobjv")]
 position = Vector2(1787, -382)
 
