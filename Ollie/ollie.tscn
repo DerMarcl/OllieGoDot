@@ -1,9 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://daruyvrj422vn"]
+[gd_scene load_steps=45 format=3 uid="uid://daruyvrj422vn"]
 
 [ext_resource type="Script" path="res://ollie.gd" id="1_evi1c"]
 [ext_resource type="Texture2D" uid="uid://dkmbojy8yy8ni" path="res://OllieBonk_1.png" id="2_w5mhl"]
 [ext_resource type="Texture2D" uid="uid://cbba6322hrwk4" path="res://2D_Ollie_V2.png" id="2_yshjr"]
 [ext_resource type="Texture2D" uid="uid://brfhy6f3wnbg7" path="res://OlliePowerUpsV1.png" id="3_uwn4t"]
+[ext_resource type="Texture2D" path="res://OlliePowerUpsRUNAnimation.png" id="4_cqy3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_10388"]
 atlas = ExtResource("2_w5mhl")
@@ -61,21 +62,21 @@ region = Rect2(1024, 512, 256, 256)
 atlas = ExtResource("3_uwn4t")
 region = Rect2(256, 768, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vo35g"]
-atlas = ExtResource("3_uwn4t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7pc5"]
+atlas = ExtResource("4_cqy3k")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksnsn"]
+atlas = ExtResource("4_cqy3k")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2oc1"]
+atlas = ExtResource("4_cqy3k")
 region = Rect2(0, 512, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ng241"]
-atlas = ExtResource("3_uwn4t")
-region = Rect2(256, 512, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_517py"]
-atlas = ExtResource("3_uwn4t")
-region = Rect2(512, 512, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a6fjq"]
-atlas = ExtResource("3_uwn4t")
-region = Rect2(256, 512, 256, 256)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cqsa"]
+atlas = ExtResource("4_cqy3k")
+region = Rect2(512, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4bsch"]
 atlas = ExtResource("3_uwn4t")
@@ -89,25 +90,25 @@ region = Rect2(256, 0, 256, 256)
 atlas = ExtResource("3_uwn4t")
 region = Rect2(512, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lo7je"]
-atlas = ExtResource("3_uwn4t")
-region = Rect2(1024, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nuvgt"]
-atlas = ExtResource("3_uwn4t")
-region = Rect2(1024, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3ce5n"]
-atlas = ExtResource("3_uwn4t")
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5ml4"]
+atlas = ExtResource("4_cqy3k")
 region = Rect2(0, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_as5je"]
-atlas = ExtResource("3_uwn4t")
-region = Rect2(256, 256, 256, 256)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dari7"]
+atlas = ExtResource("4_cqy3k")
+region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xim2g"]
-atlas = ExtResource("3_uwn4t")
-region = Rect2(0, 256, 256, 256)
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8lc4"]
+atlas = ExtResource("4_cqy3k")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rknc5"]
+atlas = ExtResource("4_cqy3k")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pypsa"]
+atlas = ExtResource("4_cqy3k")
+region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bf7s6"]
 atlas = ExtResource("3_uwn4t")
@@ -224,16 +225,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vo35g")
+"texture": SubResource("AtlasTexture_t7pc5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ng241")
+"texture": SubResource("AtlasTexture_ksnsn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_517py")
+"texture": SubResource("AtlasTexture_w2oc1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a6fjq")
+"texture": SubResource("AtlasTexture_1cqsa")
 }],
 "loop": true,
 "name": &"Caveman_run",
@@ -255,7 +256,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lo7je")
+"texture": SubResource("AtlasTexture_s5ml4")
 }],
 "loop": true,
 "name": &"Pirate_jump",
@@ -263,16 +264,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nuvgt")
+"texture": SubResource("AtlasTexture_dari7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3ce5n")
+"texture": SubResource("AtlasTexture_b8lc4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_as5je")
+"texture": SubResource("AtlasTexture_rknc5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xim2g")
+"texture": SubResource("AtlasTexture_pypsa")
 }],
 "loop": true,
 "name": &"Pirate_run",
@@ -345,10 +346,8 @@ texture_filter = 1
 position = Vector2(-24, -5.5)
 scale = Vector2(0.625, 0.605469)
 sprite_frames = SubResource("SpriteFrames_1arcn")
-animation = &"BigBonk"
+animation = &"Caveman_attack"
 autoplay = "default"
-frame = 5
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-24.5, -11.5)
