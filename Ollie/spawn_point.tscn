@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=2 format=3 uid="uid://d1mrydor06giq"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://lo6rj8ytakga"]
+>>>>>>> cc0a6a765d0f8ac3862ba71ce0e9da82051caff9
 
 [ext_resource type="Script" path="res://spawn_point.gd" id="1_13c8e"]
 
