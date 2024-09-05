@@ -42,11 +42,6 @@ func respawn():
 	Global.coins = Global.coins - Global.cur_coins
 	Global.cur_coins = 0
 	Global.lives = 3
-<<<<<<< HEAD
-	
-func levelselector(level_id: int):
-	match level_id:
-=======
 	Global.cur_power = GameManager.PossiblePowers.NORMAL
 
 
@@ -57,17 +52,12 @@ func level_selector(level_id: int):
 
 func _level_selector_deferred():
 	match switch_level_id:
->>>>>>> cc0a6a765d0f8ac3862ba71ce0e9da82051caff9
 		1:
 			get_tree().change_scene_to_file("res://Scenen/TestLevels/testlevel.tscn")
 		2:
 			get_tree().change_scene_to_file("res://Scenen/TestLevels/level2.tscn")
 		_:
 			get_tree().change_scene_to_file("res://Scenen/main_menu.tscn")
-<<<<<<< HEAD
-
-=======
 			
->>>>>>> cc0a6a765d0f8ac3862ba71ce0e9da82051caff9
 	
 

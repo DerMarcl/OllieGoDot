@@ -5,12 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://l8ayrglej43f" path="res://Free/Terrain/Terrain (16x16).png" id="3_l2dbe"]
 [ext_resource type="PackedScene" uid="uid://daruyvrj422vn" path="res://ollie.tscn" id="4_gkuxu"]
 [ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Portal_Goal.tscn" id="5_i0yb7"]
-[ext_resource type="PackedScene" uid="uid://bbg026mn2ud0y" path="res://Scenen/LevelOverworld.tscn" id="6_c3ypp"]
 [ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://GoldCoin.tscn" id="6_ci6b4"]
-<<<<<<< HEAD:Ollie/Scenen/level2.tscn
-=======
 [ext_resource type="PackedScene" uid="uid://lo6rj8ytakga" path="res://spawn_point.tscn" id="6_wl60i"]
->>>>>>> cc0a6a765d0f8ac3862ba71ce0e9da82051caff9:Ollie/Scenen/TestLevels/level2.tscn
 [ext_resource type="Script" path="res://Scenen/Main_Scene.gd" id="7_ssos7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
@@ -500,13 +496,6 @@ position = Vector2(-24, -9)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 
-<<<<<<< HEAD:Ollie/Scenen/level2.tscn
-[node name="PortalGoal" parent="SceneObjects" instance=ExtResource("5_i0yb7")]
-position = Vector2(2601, 471)
-target_level = ExtResource("6_c3ypp")
-
-=======
->>>>>>> cc0a6a765d0f8ac3862ba71ce0e9da82051caff9:Ollie/Scenen/TestLevels/level2.tscn
 [node name="Collectables" type="Node" parent="SceneObjects"]
 
 [node name="Portals_and_Spawns" type="Node" parent="SceneObjects"]

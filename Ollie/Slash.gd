@@ -13,8 +13,7 @@ func _ready():
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Enemy"):
 		body.queue_free()
-	if body.is_in_group("Bonkable"):
-		body.box_hit()
+
 
 func _on_animated_sprite_2d_animation_looped():
 	queue_free()

@@ -39,26 +39,17 @@ func jump_slide(x):
 
 func _ready():
 	power_state = Global.cur_power
-<<<<<<< HEAD
-	#call_deferred("_find_spawn_container")
-
-=======
 	call_deferred("_find_spawn_container")
 	
->>>>>>> cc0a6a765d0f8ac3862ba71ce0e9da82051caff9
 func _find_spawn_container():
 	var scene_objects = get_tree().current_scene.get_node("SceneObjects")
 	var spawn_container = scene_objects.get_node("Portals_and_Spawns")
-
-<<<<<<< HEAD
+	
 	if spawn_container == null:
 		print("Portals_and_Spawns node not found!")
 	else:
 		print("Found Portals_and_Spawns node: ", spawn_container)
-
-=======
 	
->>>>>>> cc0a6a765d0f8ac3862ba71ce0e9da82051caff9
 	var spawn_points = spawn_container.get_children()
 
 	for spawn_point in spawn_points:
@@ -146,7 +137,8 @@ func _physics_process(delta):
 		cur_direction = -1
 	else:
 		cur_direction = 1
-		
+	
+	
 func powerStateChange(new_power_state : GameManager.PossiblePowers):
 	power_state = new_power_state
 	Global.cur_power = new_power_state
@@ -169,6 +161,4 @@ func club_slash():
 	
 	Slash.direction = cur_direction
 	get_parent().add_child(Slash)
-	
-
 
