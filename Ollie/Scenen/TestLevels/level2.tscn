@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cka2otmfgkpt4"]
+[gd_scene load_steps=12 format=3 uid="uid://cka2otmfgkpt4"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_juhog"]
 [ext_resource type="Texture2D" uid="uid://bcpjqgpygvsdr" path="res://Free/Background/Brown.png" id="2_18hnn"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://GoldCoin.tscn" id="6_ci6b4"]
 [ext_resource type="PackedScene" uid="uid://lo6rj8ytakga" path="res://spawn_point.tscn" id="6_wl60i"]
 [ext_resource type="Script" path="res://Scenen/Main_Scene.gd" id="7_ssos7"]
+[ext_resource type="PackedScene" uid="uid://c30rvy2n3ucc6" path="res://wood_enemy.tscn" id="9_0nvlg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("3_l2dbe")
@@ -554,3 +555,6 @@ position = Vector2(1525, 390)
 
 [node name="GoldCoin4" parent="." instance=ExtResource("6_ci6b4")]
 position = Vector2(2205, 388)
+
+[node name="Wood-Enemy" parent="." instance=ExtResource("9_0nvlg")]
+position = Vector2(363, 530)
