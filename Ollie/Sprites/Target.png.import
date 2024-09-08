@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6fqgsf2oru2e"
-path="res://.godot/imported/2D_Character_Olliver_V1.1 (2).png-6bfd6003c04bb2bc8ef7411d5de0145e.ctex"
+uid="uid://ckpffd0ogy88l"
+path="res://.godot/imported/Target.png-e977b3fa9637f43c02a8fd4ee98a3624.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2D_Character_Olliver_V1.1 (2).png"
-dest_files=["res://.godot/imported/2D_Character_Olliver_V1.1 (2).png-6bfd6003c04bb2bc8ef7411d5de0145e.ctex"]
+source_file="res://Sprites/Target.png"
+dest_files=["res://.godot/imported/Target.png-e977b3fa9637f43c02a8fd4ee98a3624.ctex"]
 
 [params]
 

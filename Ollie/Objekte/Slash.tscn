@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b5l6k3kc541ki"]
 
-[ext_resource type="Script" path="res://Slash.gd" id="1_jvlxu"]
+[ext_resource type="Script" path="res://Skripte/Slash.gd" id="1_jvlxu"]
 [ext_resource type="Texture2D" uid="uid://b4b8ighakslb4" path="res://AssetPacks/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/25-Attack 2/Attack 2 01.png" id="2_vmna4"]
 [ext_resource type="Texture2D" uid="uid://byrljck4wraau" path="res://AssetPacks/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/25-Attack 2/Attack 2 02.png" id="3_vb08r"]
 [ext_resource type="Texture2D" uid="uid://d0y6uci4evwsa" path="res://AssetPacks/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Sword Effects/25-Attack 2/Attack 2 03.png" id="4_muw6e"]

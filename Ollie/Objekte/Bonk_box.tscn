@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://p0kibpto1ux5"]
 
-[ext_resource type="Script" path="res://Bonk_box.gd" id="1_bky8b"]
+[ext_resource type="Script" path="res://Skripte/Bonk_box.gd" id="1_bky8b"]
 [ext_resource type="Texture2D" uid="uid://wuxbqlkx1bqo" path="res://AssetPacks/Treasure Hunters/Merchant Ship/Sprites/Box/Idle/1.png" id="1_j1u1w"]
 [ext_resource type="Texture2D" uid="uid://bmrippf1uyk0u" path="res://AssetPacks/Treasure Hunters/Merchant Ship/Sprites/Box/Hit/1.png" id="2_2fnwp"]
 [ext_resource type="Texture2D" uid="uid://cmup8f5vqsm65" path="res://AssetPacks/Treasure Hunters/Merchant Ship/Sprites/Box/Hit/2.png" id="3_c8hla"]

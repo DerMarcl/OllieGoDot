@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnf1rl6shmn32"
-path="res://.godot/imported/Target (1).png-035a2baea15b06b1d1d869d05e538157.ctex"
+uid="uid://qxr6iqe36876"
+path="res://.godot/imported/OlliePowerUpsRUNAnimation.png-325806ad0114274eb5a6125efb5bd3ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Target (1).png"
-dest_files=["res://.godot/imported/Target (1).png-035a2baea15b06b1d1d869d05e538157.ctex"]
+source_file="res://Sprites/OlliePowerUpsRUNAnimation.png"
+dest_files=["res://.godot/imported/OlliePowerUpsRUNAnimation.png-325806ad0114274eb5a6125efb5bd3ab.ctex"]
 
 [params]
 

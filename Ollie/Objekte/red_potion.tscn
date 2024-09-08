@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://dg3h6a6hjnsm3"]
 
-[ext_resource type="Script" path="res://Red Potion.gd" id="1_58jct"]
+[ext_resource type="Script" path="res://Skripte/Red Potion.gd" id="1_58jct"]
 [ext_resource type="Texture2D" uid="uid://bx2s1si4vdut0" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/02.png" id="2_7ux33"]
 [ext_resource type="Texture2D" uid="uid://beayyk7lnegwj" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/01.png" id="2_asg8v"]
-[ext_resource type="Texture2D" path="res://PowerUps.png" id="2_t1m3o"]
+[ext_resource type="Texture2D" uid="uid://cmsiox16ylegt" path="res://Sprites/PowerUps.png" id="2_t1m3o"]
 [ext_resource type="Texture2D" uid="uid://lpsx07s3lj7n" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/03.png" id="4_eddqj"]
 [ext_resource type="Texture2D" uid="uid://cllrrtaawow6x" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/04.png" id="5_xi082"]
 [ext_resource type="Texture2D" uid="uid://p7ynf1vbh2us" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Red Potion/05.png" id="6_tlody"]
@@ -87,7 +87,6 @@ texture_filter = 1
 position = Vector2(-2, -18)
 scale = Vector2(2.22378, 2.22554)
 sprite_frames = SubResource("SpriteFrames_2s6hi")
-animation = &"new_animation"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://r4r0htvmigi7"]
 
-[ext_resource type="Script" path="res://Portal_Goal.gd" id="1_is72j"]
-[ext_resource type="Texture2D" uid="uid://1348m73h5dmf" path="res://Purple Portal Sprite Sheet.png" id="1_r48gw"]
+[ext_resource type="Script" path="res://Skripte/Portal_Goal.gd" id="1_is72j"]
+[ext_resource type="Texture2D" uid="uid://1348m73h5dmf" path="res://Sprites/Purple Portal Sprite Sheet.png" id="1_r48gw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_veugf"]
 atlas = ExtResource("1_r48gw")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1348m73h5dmf"
-path="res://.godot/imported/Purple Portal Sprite Sheet.png-345a9ad660db21b0ceae23f0b97ae74e.ctex"
+uid="uid://cbba6322hrwk4"
+path="res://.godot/imported/2D_Ollie_V2.png-dcf7c20590c55ff83c3a4432aa8d6f0e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Purple Portal Sprite Sheet.png"
-dest_files=["res://.godot/imported/Purple Portal Sprite Sheet.png-345a9ad660db21b0ceae23f0b97ae74e.ctex"]
+source_file="res://Sprites/2D_Ollie_V2.png"
+dest_files=["res://.godot/imported/2D_Ollie_V2.png-dcf7c20590c55ff83c3a4432aa8d6f0e.ctex"]
 
 [params]
 

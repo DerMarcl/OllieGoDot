@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbba6322hrwk4"
-path="res://.godot/imported/2D_Ollie_V2.png-f39dd7b1459ac211f17fc5836718a9a5.ctex"
+uid="uid://cnf1rl6shmn32"
+path="res://.godot/imported/Target (1).png-7862200e6a6fb7db74c304d81095a927.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2D_Ollie_V2.png"
-dest_files=["res://.godot/imported/2D_Ollie_V2.png-f39dd7b1459ac211f17fc5836718a9a5.ctex"]
+source_file="res://Sprites/Target (1).png"
+dest_files=["res://.godot/imported/Target (1).png-7862200e6a6fb7db74c304d81095a927.ctex"]
 
 [params]
 

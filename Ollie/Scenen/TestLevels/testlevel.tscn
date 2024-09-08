@@ -1,19 +1,20 @@
-[gd_scene load_steps=20 format=3 uid="uid://vjd6lfvw1wmm"]
+[gd_scene load_steps=21 format=3 uid="uid://vjd6lfvw1wmm"]
 
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="1_p6d7b"]
 [ext_resource type="Texture2D" uid="uid://l8ayrglej43f" path="res://Free/Terrain/Terrain (16x16).png" id="2_gkgb0"]
-[ext_resource type="PackedScene" uid="uid://daruyvrj422vn" path="res://ollie.tscn" id="3_hc8y2"]
-[ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://GoldCoin.tscn" id="4_osa7g"]
-[ext_resource type="Script" path="res://game_manager.gd" id="5_jyfnp"]
-[ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Portal_Goal.tscn" id="6_jrohl"]
+[ext_resource type="PackedScene" uid="uid://daruyvrj422vn" path="res://Objekte/ollie.tscn" id="3_hc8y2"]
+[ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://Objekte/GoldCoin.tscn" id="4_osa7g"]
+[ext_resource type="Script" path="res://Skripte/game_manager.gd" id="5_jyfnp"]
+[ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Objekte/Portal_Goal.tscn" id="6_jrohl"]
 [ext_resource type="Script" path="res://Scenen/Main_Scene.gd" id="8_7bxpl"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="8_qpw2p"]
-[ext_resource type="PackedScene" uid="uid://lo6rj8ytakga" path="res://spawn_point.tscn" id="8_siggn"]
-[ext_resource type="PackedScene" uid="uid://c30rvy2n3ucc6" path="res://wood_enemy.tscn" id="9_68vtk"]
+[ext_resource type="PackedScene" uid="uid://lo6rj8ytakga" path="res://Objekte/spawn_point.tscn" id="8_siggn"]
+[ext_resource type="PackedScene" uid="uid://c30rvy2n3ucc6" path="res://Objekte/wood_enemy.tscn" id="9_68vtk"]
 [ext_resource type="Script" path="res://Scenen/Pause.gd" id="9_nc2e4"]
 [ext_resource type="Script" path="res://Scenen/fallArea.gd" id="10_26k7i"]
-[ext_resource type="PackedScene" uid="uid://dg3h6a6hjnsm3" path="res://red_potion.tscn" id="12_at8x0"]
-[ext_resource type="PackedScene" uid="uid://p0kibpto1ux5" path="res://Bonk_box.tscn" id="14_lobjv"]
+[ext_resource type="PackedScene" uid="uid://dg3h6a6hjnsm3" path="res://Objekte/red_potion.tscn" id="12_at8x0"]
+[ext_resource type="PackedScene" uid="uid://p0kibpto1ux5" path="res://Objekte/Bonk_box.tscn" id="14_lobjv"]
+[ext_resource type="PackedScene" uid="uid://dfa3glkxp66pl" path="res://Objekte/Raptor.tscn" id="15_ltoyi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("2_gkgb0")
@@ -720,6 +721,9 @@ position = Vector2(1787, -382)
 
 [node name="Bonk_Box2" parent="." instance=ExtResource("14_lobjv")]
 position = Vector2(1787, -435)
+
+[node name="Node2D" parent="." instance=ExtResource("15_ltoyi")]
+position = Vector2(2031, 371)
 
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]

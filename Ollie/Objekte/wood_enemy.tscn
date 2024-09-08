@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://c30rvy2n3ucc6"]
 
-[ext_resource type="Script" path="res://wood_enemy.gd" id="1_icfo4"]
+[ext_resource type="Script" path="res://Skripte/wood_enemy.gd" id="1_icfo4"]
 [ext_resource type="Texture2D" uid="uid://bjijbjavhg8mh" path="res://Free/Enemies/Trunk/Idle (64x32).png" id="1_jh0wv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_34i7i"]

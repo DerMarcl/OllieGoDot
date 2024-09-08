@@ -1,14 +1,14 @@
 [gd_scene load_steps=18 format=3 uid="uid://duxnp7s40g5eh"]
 
-[ext_resource type="Script" path="res://game_manager.gd" id="1_aj1by"]
+[ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_aj1by"]
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="2_f7mhp"]
 [ext_resource type="Texture2D" uid="uid://l8ayrglej43f" path="res://Free/Terrain/Terrain (16x16).png" id="3_k4rpm"]
 [ext_resource type="Texture2D" uid="uid://ebqi8me62bt1" path="res://AssetPacks/Treasure Hunters/Pirate Ship/Sprites/Tilesets/Terrain and Back Wall (32x32).png" id="4_b5xu2"]
-[ext_resource type="PackedScene" uid="uid://daruyvrj422vn" path="res://ollie.tscn" id="4_riuxc"]
-[ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://GoldCoin.tscn" id="7_yqx8j"]
+[ext_resource type="PackedScene" uid="uid://daruyvrj422vn" path="res://Objekte/ollie.tscn" id="4_riuxc"]
+[ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://Objekte/GoldCoin.tscn" id="7_yqx8j"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="8_48wt5"]
 [ext_resource type="Script" path="res://Scenen/Pause.gd" id="9_70btx"]
-[ext_resource type="PackedScene" uid="uid://c30rvy2n3ucc6" path="res://wood_enemy.tscn" id="10_qd3w4"]
+[ext_resource type="PackedScene" uid="uid://c30rvy2n3ucc6" path="res://Objekte/wood_enemy.tscn" id="10_qd3w4"]
 [ext_resource type="Script" path="res://Scenen/fallArea.gd" id="11_eka1a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]

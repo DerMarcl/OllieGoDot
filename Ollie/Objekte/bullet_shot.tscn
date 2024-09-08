@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyx2glqeawj6n"]
 
-[ext_resource type="Script" path="res://bullet_shot.gd" id="1_10bln"]
-[ext_resource type="Texture2D" uid="uid://bf412ehfuaqkl" path="res://AssetPacks/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Idle/1.png" id="2_wsls6"]
+[ext_resource type="Script" path="res://Skripte/bullet_shot.gd" id="1_r3c7q"]
+[ext_resource type="Texture2D" uid="uid://bf412ehfuaqkl" path="res://AssetPacks/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Idle/1.png" id="2_6nht5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1e8q"]
 radius = 6.0
@@ -10,13 +10,13 @@ radius = 6.0
 radius = 11.0
 
 [node name="bullet_Power_up" type="Area2D"]
-script = ExtResource("1_10bln")
+script = ExtResource("1_r3c7q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(0, -11)
 scale = Vector2(1.4375, 1.4375)
-texture = ExtResource("2_wsls6")
+texture = ExtResource("2_6nht5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -11)

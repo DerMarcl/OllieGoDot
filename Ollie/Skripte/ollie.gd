@@ -168,7 +168,7 @@ func powerStateChange(new_power_state : GameManager.PossiblePowers):
 
 
 func shoot_bullet():
-	var BulletShotScene = load("res://bullet_shot.tscn")
+	var BulletShotScene = load("res://Objekte/bullet_shot.tscn")
 	var Bullet = BulletShotScene.instantiate()
 	Bullet.global_position = global_position
 	
@@ -187,7 +187,7 @@ func _on_sprite_2d_animation_looped():
 
 func _on_hitbox_timer_bonk_timeout():
 	print("timeout")
-	var SlashScene = load("res://Slash.tscn")
+	var SlashScene = load("res://Objekte/Slash.tscn")
 	var Slash = SlashScene.instantiate()
 	Slash.global_position = global_position
 	
