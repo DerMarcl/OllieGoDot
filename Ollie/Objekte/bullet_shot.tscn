@@ -23,6 +23,7 @@ position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_a1e8q")
 
 [node name="hitbox" type="Area2D" parent="."]
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0, -11)

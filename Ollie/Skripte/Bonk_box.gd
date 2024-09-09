@@ -13,8 +13,9 @@ func _ready():
 	$Timer.one_shot = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+# Dont need them right now. Who knows. Maybe later.
+#func _process(delta):
+	#pass
 
 func box_hit():
 	if can_be_hit:

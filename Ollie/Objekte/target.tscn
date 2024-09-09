@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://yo600t536ie7"]
+[gd_scene load_steps=16 format=3 uid="uid://yo600t536ie7"]
 
+[ext_resource type="Script" path="res://Objekte/target.gd" id="1_q6rqr"]
 [ext_resource type="Texture2D" uid="uid://ckpffd0ogy88l" path="res://Sprites/Target.png" id="1_r0kmm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bp3dx"]
@@ -75,7 +76,7 @@ animations = [{
 "duration": 10.0,
 "texture": SubResource("AtlasTexture_04ht3")
 }],
-"loop": true,
+"loop": false,
 "name": &"destroyed",
 "speed": 10.0
 }, {
@@ -92,7 +93,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_by6sc")
 }],
-"loop": true,
+"loop": false,
 "name": &"destroyed_air",
 "speed": 10.0
 }]
@@ -101,15 +102,20 @@ animations = [{
 radius = 55.3263
 
 [node name="Target" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
+gravity_scale = 0.0
+script = ExtResource("1_q6rqr")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.00001, -0.999992)
-scale = Vector2(0.535509, 0.523033)
+position = Vector2(2, 0)
+scale = Vector2(0.268, 0.261)
 sprite_frames = SubResource("SpriteFrames_uixd0")
-animation = &"destroyed"
 autoplay = "default"
-frame_progress = 0.935206
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -2)
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_5r6oa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

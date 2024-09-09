@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpn7ui1kfybto"]
+
+[ext_resource type="Script" path="res://Objekte/moving_platform.gd" id="1_o7png"]
+[ext_resource type="Texture2D" uid="uid://nutl5hbwmafc" path="res://Free/Traps/Platforms/Brown Off.png" id="1_xbraj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it1sp"]
+size = Vector2(120, 16)
+
+[node name="Moving_Platform" type="CharacterBody2D"]
+collision_mask = 128
+script = ExtResource("1_o7png")
+point_b = Vector2(0, 500)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("1_xbraj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_it1sp")
+one_way_collision = true
+one_way_collision_margin = 8.0
+
+[node name="Wait_Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Wait_Timer" to="." method="_on_wait_timer_timeout"]

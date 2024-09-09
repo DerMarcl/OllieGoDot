@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://vjd6lfvw1wmm"]
+[gd_scene load_steps=23 format=3 uid="uid://vjd6lfvw1wmm"]
 
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="1_p6d7b"]
 [ext_resource type="Texture2D" uid="uid://l8ayrglej43f" path="res://Free/Terrain/Terrain (16x16).png" id="2_gkgb0"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dg3h6a6hjnsm3" path="res://Objekte/red_potion.tscn" id="12_at8x0"]
 [ext_resource type="PackedScene" uid="uid://p0kibpto1ux5" path="res://Objekte/Bonk_box.tscn" id="14_lobjv"]
 [ext_resource type="PackedScene" uid="uid://dfa3glkxp66pl" path="res://Objekte/Raptor.tscn" id="15_ltoyi"]
+[ext_resource type="PackedScene" uid="uid://yo600t536ie7" path="res://Objekte/target.tscn" id="16_3j2ee"]
+[ext_resource type="PackedScene" uid="uid://bpn7ui1kfybto" path="res://Objekte/moving_platform.tscn" id="17_40k51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("2_gkgb0")
@@ -714,7 +716,7 @@ gives_powerup = 2
 [node name="Red Potion3" parent="." instance=ExtResource("12_at8x0")]
 position = Vector2(318, 280)
 is_moving = false
-gives_powerup = 2
+gives_powerup = 1
 
 [node name="Bonk_Box" parent="." instance=ExtResource("14_lobjv")]
 position = Vector2(1787, -382)
@@ -725,7 +727,21 @@ position = Vector2(1787, -435)
 [node name="Node2D" parent="." instance=ExtResource("15_ltoyi")]
 position = Vector2(2031, 371)
 
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
+[node name="Bonk_Box3" parent="." instance=ExtResource("14_lobjv")]
+position = Vector2(543, 273)
+
+[node name="Target" parent="." instance=ExtResource("16_3j2ee")]
+position = Vector2(785, 275)
+event_to_trigger = "Test_platform"
+
+[node name="Moving_Platform" parent="." instance=ExtResource("17_40k51")]
+position = Vector2(1215, 350)
+move_speed = 400
+point_a = Vector2(1215, 300)
+point_b = Vector2(1215, -400)
+event_name = "Test_platform"
+
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

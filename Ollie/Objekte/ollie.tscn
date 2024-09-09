@@ -346,7 +346,7 @@ texture_filter = 1
 position = Vector2(-24, -5.5)
 scale = Vector2(0.625, 0.605469)
 sprite_frames = SubResource("SpriteFrames_1arcn")
-animation = &"Caveman_attack"
+animation = &"Pirate_shoot"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -356,7 +356,11 @@ shape = SubResource("RectangleShape2D_1s6vf")
 [node name="hitbox_Timer_Bonk" type="Timer" parent="."]
 wait_time = 0.25
 
+[node name="gun_out_timer" type="Timer" parent="."]
+wait_time = 0.15
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="Sprite2D" to="." method="_on_sprite_2d_animation_looped"]
 [connection signal="timeout" from="hitbox_Timer_Bonk" to="." method="_on_hitbox_timer_bonk_timeout"]
+[connection signal="timeout" from="gun_out_timer" to="." method="_on_gun_out_timer_timeout"]

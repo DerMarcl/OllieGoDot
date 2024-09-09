@@ -23,6 +23,7 @@ var deceleration = SPEED / DECELERATION_TIME
 var has_walljump = false
 var has_backwards_walljump = true
 var does_spcial_action = false
+var does_moveable_action = false
 
 var coyote_timer = 0.0 # tracks how long we've been off the ground
 var grace_timer = 0.0 # tracks how long since last wall jump
@@ -42,6 +43,7 @@ func _ready():
 	power_state = Global.cur_power
 	call_deferred("_find_spawn_container")
 	$hitbox_Timer_Bonk.one_shot = true
+	$gun_out_timer.one_shot = true
 	
 func _find_spawn_container():
 	var scene_objects = get_tree().current_scene.get_node("SceneObjects")
@@ -73,7 +75,7 @@ func _physics_process(delta):
 	direction = Input.get_axis("left", "right")
 	
 	#animation corner:
-	if not does_spcial_action:
+	if not does_spcial_action and not does_moveable_action:
 		match power_state:
 			GameManager.PossiblePowers.NORMAL:
 				if not is_on_floor():
@@ -174,6 +176,9 @@ func shoot_bullet():
 	
 	Bullet.direction = cur_direction
 	get_parent().add_child(Bullet)
+	sprite_2d.animation = "Pirate_shoot"
+	does_moveable_action = true
+	$gun_out_timer.start()
 	
 func club_slash():
 	print("smash")
@@ -194,4 +199,5 @@ func _on_hitbox_timer_bonk_timeout():
 	Slash.direction = cur_direction
 	get_parent().add_child(Slash)
 
-
+func _on_gun_out_timer_timeout():
+	does_moveable_action = false

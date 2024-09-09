@@ -661,6 +661,6 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_p3tfx")
 text = "Hauptmenü"
 
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
