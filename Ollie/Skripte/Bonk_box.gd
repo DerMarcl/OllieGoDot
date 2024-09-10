@@ -11,6 +11,8 @@ func _ready():
 	add_to_group("Bonkable")
 	$Timer.wait_time = hit_cooldown
 	$Timer.one_shot = true
+	if GameManager.is_despawned(name):
+		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Dont need them right now. Who knows. Maybe later.
@@ -28,6 +30,7 @@ func box_hit():
 		# Check if hits exceed the limit
 		if hits_taken >= max_hits:
 			queue_free()  # Destroy the box
+			GameManager.mark_as_despawned(name)
 		else:
 			sprite_2d.animation = "Hit" 
 

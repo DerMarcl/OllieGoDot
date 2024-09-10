@@ -4,7 +4,8 @@ extends RigidBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Enemy")
-	
+	if GameManager.is_despawned(name):
+		queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,6 +19,7 @@ func _on_area_2d_body_entered(body):
 		var x_delta = body.position.x - position.x
 		if(y_delta > 30):
 			print("enemy defeated")
+			GameManager.mark_as_despawned(name)
 			queue_free()
 			body.jump()
 		else:

@@ -6,6 +6,8 @@ extends RigidBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Shootable")
+	if GameManager.is_despawned(name):
+		queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,7 +21,7 @@ func target_hit():
 		sprite_2d.animation = "destroyed_air"
 	else:
 		sprite_2d.animation = "destroyed"
-	
+	GameManager.mark_as_despawned(name)
 	if event_to_trigger != "":
 		EventManager.trigger_event(event_to_trigger)
 

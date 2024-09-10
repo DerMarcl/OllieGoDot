@@ -4,7 +4,8 @@ extends Node
 @export var hearts : Array[Node]
 
 var main_scene = null
-var switch_level_id = 0
+var current_level_id = 1
+var despawned_objects = []
 
 enum PossiblePowers {
 	NORMAL,
@@ -46,13 +47,13 @@ func respawn():
 	Global.cur_power = GameManager.PossiblePowers.NORMAL
 
 
-
+#Level selector
 func level_selector(level_id: int):
-	switch_level_id = level_id
+	current_level_id = level_id
 	call_deferred("_level_selector_deferred")
 
 func _level_selector_deferred():
-	match switch_level_id:
+	match current_level_id:
 		1:
 			get_tree().change_scene_to_file("res://Scenen/TestLevels/testlevel.tscn")
 		2:
@@ -61,4 +62,15 @@ func _level_selector_deferred():
 			get_tree().change_scene_to_file("res://Scenen/main_menu.tscn")
 			
 	
+# Despawning logic
+# Mark an object as despawned by its name and the level ID
+func mark_as_despawned(object_name: String):
+	var unique_id = object_name + "_" + str(current_level_id)  # Combine name and level ID
+	print(unique_id)
+	if unique_id not in despawned_objects:
+		despawned_objects.append(unique_id)
 
+# Check if an object is despawned by its name and the level ID
+func is_despawned(object_name: String) -> bool:
+	var unique_id = object_name + "_" + str(current_level_id)  # Combine name and level ID
+	return unique_id in despawned_objects

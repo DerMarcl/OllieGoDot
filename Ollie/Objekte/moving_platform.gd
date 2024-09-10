@@ -27,12 +27,12 @@ func _physics_process(delta):
 	if is_moving:
 		move_platform(delta)
 
-func move_platform(delta):
+func move_platform(_delta):
 	# Calculate the direction towards the target point
 	var direction_vector = (target_point - position).normalized()
 
 	# Set the platform's velocity based on direction and speed
-	velocity = direction_vector * move_speed
+	velocity = direction_vector * move_speed 
 
 	# Move the platform using move_and_slide (no external forces will affect it)
 	move_and_slide()

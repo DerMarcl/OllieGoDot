@@ -724,7 +724,7 @@ position = Vector2(1787, -382)
 [node name="Bonk_Box2" parent="." instance=ExtResource("14_lobjv")]
 position = Vector2(1787, -435)
 
-[node name="Node2D" parent="." instance=ExtResource("15_ltoyi")]
+[node name="Dino" parent="." instance=ExtResource("15_ltoyi")]
 position = Vector2(2031, 371)
 
 [node name="Bonk_Box3" parent="." instance=ExtResource("14_lobjv")]
@@ -741,7 +741,7 @@ point_a = Vector2(1215, 300)
 point_b = Vector2(1215, -400)
 event_name = "Test_platform"
 
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
