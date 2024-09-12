@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpn7ui1kfybto"]
 
-[ext_resource type="Script" path="res://Objekte/moving_platform.gd" id="1_o7png"]
+[ext_resource type="Script" path="res://Skripte/moving_platform.gd" id="1_o7png"]
 [ext_resource type="Texture2D" uid="uid://nutl5hbwmafc" path="res://Free/Traps/Platforms/Brown Off.png" id="1_xbraj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_it1sp"]

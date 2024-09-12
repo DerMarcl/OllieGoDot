@@ -11,12 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://lo6rj8ytakga" path="res://Objekte/spawn_point.tscn" id="8_siggn"]
 [ext_resource type="PackedScene" uid="uid://c30rvy2n3ucc6" path="res://Objekte/wood_enemy.tscn" id="9_68vtk"]
 [ext_resource type="Script" path="res://Scenen/Pause.gd" id="9_nc2e4"]
-[ext_resource type="Script" path="res://Scenen/fallArea.gd" id="10_26k7i"]
+[ext_resource type="PackedScene" uid="uid://1vptucwib23o" path="res://Objekte/fall_area.tscn" id="12_1jjtl"]
 [ext_resource type="PackedScene" uid="uid://dg3h6a6hjnsm3" path="res://Objekte/red_potion.tscn" id="12_at8x0"]
 [ext_resource type="PackedScene" uid="uid://p0kibpto1ux5" path="res://Objekte/Bonk_box.tscn" id="14_lobjv"]
 [ext_resource type="PackedScene" uid="uid://dfa3glkxp66pl" path="res://Objekte/Raptor.tscn" id="15_ltoyi"]
 [ext_resource type="PackedScene" uid="uid://yo600t536ie7" path="res://Objekte/target.tscn" id="16_3j2ee"]
 [ext_resource type="PackedScene" uid="uid://bpn7ui1kfybto" path="res://Objekte/moving_platform.tscn" id="17_40k51"]
+[ext_resource type="PackedScene" uid="uid://5blwshmkciw8" path="res://Objekte/Hourglass.tscn" id="18_lin6o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("2_gkgb0")
@@ -487,8 +488,6 @@ sources/0 = SubResource("TileSetAtlasSource_rw3bd")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y74j"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_erjl0"]
-
 [node name="Node" type="Node"]
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
@@ -689,13 +688,7 @@ text = "Hauptmenü"
 [node name="Wood-Enemy" parent="Enemies" instance=ExtResource("9_68vtk")]
 position = Vector2(681, 436)
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(554, 755)
-script = ExtResource("10_26k7i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(26, -36)
-shape = SubResource("WorldBoundaryShape2D_erjl0")
+[node name="FallArea" parent="." instance=ExtResource("12_1jjtl")]
 
 [node name="Wood-Enemy" parent="." instance=ExtResource("9_68vtk")]
 position = Vector2(1795, 435)
@@ -741,7 +734,7 @@ point_a = Vector2(1215, 300)
 point_b = Vector2(1215, -400)
 event_name = "Test_platform"
 
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

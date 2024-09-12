@@ -11,3 +11,6 @@ func _on_body_entered(body):
 		GameManager.mark_as_despawned(name)
 		queue_free()
 		game_manager.add_coins()
+	if (body.name == "DinoRider"):
+		queue_free()
+		game_manager.add_coins()

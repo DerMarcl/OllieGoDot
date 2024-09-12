@@ -15,6 +15,9 @@ func _on_body_entered(body):
 	if (body.name == "Ollie"):
 		Global.lives = 3
 		call_deferred("reload_scene")
+	if (body.name == "DinoRider"):
+		Global.lives = 3
+		call_deferred("reload_scene")
 
 func reload_scene():
 	GameManager.respawn()

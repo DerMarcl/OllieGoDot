@@ -173,7 +173,8 @@ radius = 32.0624
 position = Vector2(-0.999992, 7.62939e-06)
 scale = Vector2(0.457031, 0.457031)
 sprite_frames = SubResource("SpriteFrames_gvbes")
-frame_progress = 0.338237
+autoplay = "default"
+frame_progress = 0.696107
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_y02k8")
