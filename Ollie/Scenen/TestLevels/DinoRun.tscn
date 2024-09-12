@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c7a0c8iqcr8kl"]
+[gd_scene load_steps=28 format=3 uid="uid://c7a0c8iqcr8kl"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_cadtc"]
 [ext_resource type="Texture2D" uid="uid://bwokdeuynjg4c" path="res://AssetPacks/Jungle Asset Pack/parallax background/plx-1.png" id="2_c1mo4"]
@@ -17,8 +17,11 @@
 [ext_resource type="Script" path="res://Scenen/Main_Scene.gd" id="9_p1yn6"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="10_88btk"]
 [ext_resource type="Script" path="res://Scenen/Pause.gd" id="11_bx4xu"]
+[ext_resource type="Texture2D" uid="uid://l5horbicl04t" path="res://Sprites/Hourglass_slot.png" id="16_5ogjn"]
+[ext_resource type="Texture2D" uid="uid://ld6pm8up4w4s" path="res://Sprites/Hourglass_Collected.png" id="17_lyxxn"]
 [ext_resource type="PackedScene" uid="uid://5blwshmkciw8" path="res://Objekte/Hourglass.tscn" id="18_laj18"]
 [ext_resource type="PackedScene" uid="uid://1vptucwib23o" path="res://Objekte/fall_area.tscn" id="19_0j8w1"]
+[ext_resource type="Script" path="res://Objekte/Hourglass.gd" id="21_dqw0l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("3_r0mbl")
@@ -1550,10 +1553,11 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="Node" type="Node"]
 
-[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts", "Hourglass")]
 unique_name_in_owner = true
 script = ExtResource("1_cadtc")
-hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart"), NodePath("../UI/Hearts/HBoxContainer/Heart2"), NodePath("../UI/Hearts/HBoxContainer/Heart3")]
+hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart"), NodePath("../UI/Hourglasses/Hourglass3"), NodePath("../UI/Hourglasses/Hourglass2")]
+Hourglass = [NodePath("../UI/Hourglasses/Hourglass1"), NodePath("../UI/Hourglasses/Hourglass2"), NodePath("../UI/Hourglasses/Hourglass3")]
 
 [node name="SceneObjects" type="Node" parent="."]
 
@@ -1651,8 +1655,7 @@ position = Vector2(2445, 448)
 spawn_index = 2
 
 [node name="Wood-Enemy" parent="." instance=ExtResource("8_sf00k")]
-visible = false
-position = Vector2(87, 516)
+position = Vector2(1000, 531)
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("9_p1yn6")
@@ -1708,6 +1711,80 @@ expand_mode = 2
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("10_88btk")
+expand_mode = 2
+
+[node name="Hourglasses" type="Panel" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -658.0
+offset_top = 16.0
+offset_right = -458.0
+offset_bottom = 114.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1001s")
+
+[node name="Hourglass1_Slot" type="TextureRect" parent="UI/Hourglasses"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 13.0
+offset_top = -37.0
+offset_right = 195.0
+offset_bottom = 125.0
+texture = ExtResource("16_5ogjn")
+expand_mode = 2
+
+[node name="Hourglass2_Slot" type="TextureRect" parent="UI/Hourglasses"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 62.0
+offset_top = -27.0
+offset_right = 244.0
+offset_bottom = 135.0
+texture = ExtResource("16_5ogjn")
+expand_mode = 2
+
+[node name="Hourglass3_Slot" type="TextureRect" parent="UI/Hourglasses"]
+texture_filter = 1
+layout_mode = 2
+offset_left = -36.0
+offset_top = -27.0
+offset_right = 146.0
+offset_bottom = 135.0
+texture = ExtResource("16_5ogjn")
+expand_mode = 2
+
+[node name="Hourglass2" type="TextureRect" parent="UI/Hourglasses"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+offset_left = 62.0
+offset_top = -27.0
+offset_right = 244.0
+offset_bottom = 135.0
+texture = ExtResource("17_lyxxn")
+expand_mode = 2
+
+[node name="Hourglass3" type="TextureRect" parent="UI/Hourglasses"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+offset_left = -36.0
+offset_top = -27.0
+offset_right = 146.0
+offset_bottom = 135.0
+texture = ExtResource("17_lyxxn")
+expand_mode = 2
+
+[node name="Hourglass1" type="TextureRect" parent="UI/Hourglasses"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+offset_left = 13.0
+offset_top = -37.0
+offset_right = 195.0
+offset_bottom = 125.0
+texture = ExtResource("17_lyxxn")
 expand_mode = 2
 
 [node name="Pause" type="Node" parent="UI"]
@@ -1788,12 +1865,27 @@ position = Vector2(1366, 413)
 [node name="GoldCoin6" parent="Coins" instance=ExtResource("7_b02bn")]
 position = Vector2(1598, 416)
 
-[node name="Node2D" parent="." instance=ExtResource("18_laj18")]
-position = Vector2(3539, 510)
+[node name="Hourglass" parent="." instance=ExtResource("18_laj18")]
+position = Vector2(3515, 519)
+script = ExtResource("21_dqw0l")
+Hourglass_number = 1
+
+[node name="Hourglass2" parent="." instance=ExtResource("18_laj18")]
+position = Vector2(4995, 523)
+script = ExtResource("21_dqw0l")
+Hourglass_number = 2
+
+[node name="Hourglass3" parent="." instance=ExtResource("18_laj18")]
+position = Vector2(6307, 540)
+script = ExtResource("21_dqw0l")
+Hourglass_number = 3
 
 [node name="FallArea" parent="." instance=ExtResource("19_0j8w1")]
 position = Vector2(3263, 824)
 
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
+[connection signal="body_entered" from="Hourglass" to="Hourglass" method="_on_body_entered"]
+[connection signal="body_entered" from="Hourglass2" to="Hourglass2" method="_on_body_entered"]
+[connection signal="body_entered" from="Hourglass3" to="Hourglass3" method="_on_body_entered"]

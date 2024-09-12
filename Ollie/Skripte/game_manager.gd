@@ -2,6 +2,7 @@ extends Node
 
 @onready var coins_label = $"../UI/Panel/CoinsLabel"
 @export var hearts : Array[Node]
+@export var Hourglass : Array[Node]
 
 var main_scene = null
 var current_level_id = 1
@@ -38,7 +39,16 @@ func decrease_healh():
 			hearts[h].hide()
 	if(Global.lives <= 0):
 		respawn()
+func Hourglass_shown():
+	Global.Hourglasses += 1
+	
+	for i in 3:
+		if(i < Global.Hourglasses):
+			Hourglass[i].show()
+		else:
+			Hourglass[i].hide()
 
+		
 func respawn():
 	get_tree().reload_current_scene()
 	Global.coins = Global.coins - Global.cur_coins
