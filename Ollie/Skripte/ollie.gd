@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 400.0
-const JUMP_VELOCITY = -900.0
+const JUMP_VELOCITY = -950.0
 
 const ACCELERATION_TIME = 0.04 # time to reach full speed on the ground
 const DECELERATION_TIME = 0.04 # time to fully stop on the ground
@@ -80,7 +80,7 @@ func _physics_process(delta):
 			GameManager.PossiblePowers.NORMAL:
 				if not is_on_floor():
 					sprite_2d.animation = "jumping"
-				elif (velocity.x > 1 || velocity.x < -1):
+				elif direction != 0:
 					sprite_2d.animation = "running"
 				else:
 					sprite_2d.animation = "default"
@@ -88,14 +88,14 @@ func _physics_process(delta):
 			GameManager.PossiblePowers.PIRATE:
 				if not is_on_floor():
 					sprite_2d.animation = "Pirate_jump"
-				elif (velocity.x > 1 || velocity.x < -1):
+				elif (direction != 0):
 					sprite_2d.animation = "Pirate_run"
 				else:
 					sprite_2d.animation = "Pirate_idle"
 			GameManager.PossiblePowers.CAVEMAN:
 				if not is_on_floor():
 					sprite_2d.animation = "Caveman_jump"
-				elif (velocity.x > 1 || velocity.x < -1):
+				elif (direction != 0):
 					sprite_2d.animation = "Caveman_run"
 				else:
 					sprite_2d.animation = "Caveman_idle"
