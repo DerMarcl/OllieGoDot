@@ -39,6 +39,7 @@ func decrease_healh():
 			hearts[h].hide()
 	if(Global.lives <= 0):
 		respawn()
+		
 func Hourglass_shown():
 	Global.Hourglasses += 1
 	

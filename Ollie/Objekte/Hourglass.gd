@@ -19,7 +19,6 @@ func _on_body_entered(body):
 
 func HourglassShown():
 	Hourglass_number = Hourglass_number
-	print(Hourglass_number)
 	if (Hourglass_number == 1):
 		hourglass_1.show()
 	if (Hourglass_number == 2):
