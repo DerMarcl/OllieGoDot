@@ -69,6 +69,10 @@ func _level_selector_deferred():
 			get_tree().change_scene_to_file("res://Scenen/TestLevels/testlevel.tscn")
 		2:
 			get_tree().change_scene_to_file("res://Scenen/TestLevels/level2.tscn")
+		11:
+			get_tree().change_scene_to_file("res://Scenen/Pirate level 1/Pirate1-1.tscn")
+		12:
+			get_tree().change_scene_to_file("res://Scenen/Pirate level 1/Dino1-2.tscn")
 		_:
 			get_tree().change_scene_to_file("res://Scenen/main_menu.tscn")
 			

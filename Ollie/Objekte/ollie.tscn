@@ -346,7 +346,6 @@ texture_filter = 1
 position = Vector2(-24, -5.5)
 scale = Vector2(0.625, 0.605469)
 sprite_frames = SubResource("SpriteFrames_1arcn")
-animation = &"Pirate_shoot"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
