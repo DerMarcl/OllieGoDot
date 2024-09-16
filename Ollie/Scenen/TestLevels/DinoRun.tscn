@@ -1556,7 +1556,7 @@ bg_color = Color(0, 0, 0, 1)
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts", "Hourglass")]
 unique_name_in_owner = true
 script = ExtResource("1_cadtc")
-hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart"), NodePath("../UI/Hourglasses/Hourglass3"), NodePath("../UI/Hourglasses/Hourglass2")]
+hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart"), NodePath("../UI/Hearts/HBoxContainer/Heart2"), NodePath("../UI/Hearts/HBoxContainer/Heart3")]
 Hourglass = [NodePath("../UI/Hourglasses/Hourglass1"), NodePath("../UI/Hourglasses/Hourglass2"), NodePath("../UI/Hourglasses/Hourglass3")]
 
 [node name="SceneObjects" type="Node" parent="."]

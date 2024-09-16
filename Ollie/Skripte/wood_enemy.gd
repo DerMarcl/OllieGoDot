@@ -14,7 +14,7 @@ func _process(_delta):
 
 
 func _on_area_2d_body_entered(body):
-	if(body.name == "Ollie"):
+	if body.is_in_group("Player"):
 		var y_delta = position.y - body.position.y
 		var x_delta = body.position.x - position.x
 		if(y_delta > 30):
@@ -25,7 +25,8 @@ func _on_area_2d_body_entered(body):
 		else:
 			print("Lost Life")
 			game_manager.decrease_healh()
-			if(x_delta > 0):
-				body.jump_slide(500)
-			else:
-				body.jump_slide(-500)
+			if Global.lives != 3:
+				if(x_delta > 0):
+					body.jump_slide(500)
+				else:
+					body.jump_slide(-500)

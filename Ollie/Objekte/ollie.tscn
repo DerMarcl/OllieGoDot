@@ -338,6 +338,7 @@ size = Vector2(43, 127)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 texture_filter = 1
+position = Vector2(2, -53)
 collision_layer = 3
 script = ExtResource("1_evi1c")
 

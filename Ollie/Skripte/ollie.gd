@@ -24,6 +24,7 @@ var has_walljump = false
 var has_backwards_walljump = true
 var does_spcial_action = false
 var does_moveable_action = false
+var is_in_air = false
 
 var coyote_timer = 0.0 # tracks how long we've been off the ground
 var grace_timer = 0.0 # tracks how long since last wall jump
@@ -40,6 +41,7 @@ func jump_slide(x):
 	velocity.x = x
 
 func _ready():
+	add_to_group("Player")
 	power_state = Global.cur_power
 	call_deferred("_find_spawn_container")
 	$hitbox_Timer_Bonk.one_shot = true
@@ -58,7 +60,7 @@ func _find_spawn_container():
 			break
 
 func _physics_process(delta):
-	var is_in_air = not is_on_floor()
+	is_in_air = not is_on_floor()
 	var inertia_multiplier = AIR_INERTIA_MULTIPLIER if is_in_air else 1.0
 	
 	# Determine the acceleration and deceleration based on whether the character is in the air

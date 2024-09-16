@@ -74,12 +74,17 @@ size = Vector2(184, 189)
 script = ExtResource("1_o4w0g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -9.99998)
+position = Vector2(0, -86)
 scale = Vector2(0.297852, 0.273438)
 sprite_frames = SubResource("SpriteFrames_ii1lt")
 autoplay = "default"
 frame_progress = 0.476394
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -18.5)
+position = Vector2(-2, -94.5)
 shape = SubResource("RectangleShape2D_s1tn5")
+
+[node name="Knockback_Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Knockback_Timer" to="." method="_on_knockback_timer_timeout"]
