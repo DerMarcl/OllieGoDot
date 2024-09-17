@@ -1,11 +1,12 @@
 extends RigidBody2D
 @onready var game_manager = %GameManager
-
+@export var doesRespawn = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Enemy")
-	if GameManager.is_despawned(name):
-		queue_free()
+	if not doesRespawn:
+		if GameManager.is_despawned(name):
+			queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

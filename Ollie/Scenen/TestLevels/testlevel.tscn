@@ -729,8 +729,7 @@ event_to_trigger = "Test_platform"
 [node name="Moving_Platform" parent="." instance=ExtResource("17_40k51")]
 position = Vector2(1215, 350)
 move_speed = 400
-point_a = Vector2(1215, 300)
-point_b = Vector2(1215, -400)
+point_b = Vector2(0, -700)
 event_name = "Test_platform"
 
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]

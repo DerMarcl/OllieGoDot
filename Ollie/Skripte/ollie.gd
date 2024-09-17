@@ -187,10 +187,21 @@ func club_slash():
 	$hitbox_Timer_Bonk.start()
 	does_spcial_action = true
 	sprite_2d.animation = "BigBonk"
+	sprite_2d.play()
 
-func _on_sprite_2d_animation_looped():
-	if sprite_2d.animation == "BigBonk":
+#depricated
+#func _on_sprite_2d_animation_looped():
+	#if sprite_2d.animation == "BigBonk" or sprite_2d.animation == "Zapped":
+		#does_spcial_action = false
+	
+func _on_sprite_2d_animation_finished():
+	if sprite_2d.animation == "BigBonk" or sprite_2d.animation == "Zapped":
 		does_spcial_action = false
+		if sprite_2d.animation == "Zapped":
+			sprite_2d.animation = "default"
+		elif sprite_2d.animation == "BigBonk":
+			sprite_2d.animation = "Caveman_idle"
+		sprite_2d.play()
 
 func _on_hitbox_timer_bonk_timeout():
 	print("timeout")
@@ -203,3 +214,11 @@ func _on_hitbox_timer_bonk_timeout():
 
 func _on_gun_out_timer_timeout():
 	does_moveable_action = false
+
+func Zap_powerup():
+	print("Zapped")
+	does_spcial_action = true
+	powerStateChange(GameManager.PossiblePowers.NORMAL)
+	sprite_2d.animation = "Zapped"
+	sprite_2d.play()
+

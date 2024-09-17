@@ -9,8 +9,11 @@ extends CharacterBody2D
 var target_point: Vector2     # The current target point to move towards
 var is_moving = true
 
+
 func _ready():
 	# Set the initial target point to move to
+	point_a = point_a + position
+	point_b = point_b + position
 	target_point = point_b
 	$Wait_Timer.wait_time = float(wait_cooldown)
 	$Wait_Timer.one_shot = true
@@ -29,6 +32,7 @@ func _physics_process(delta):
 
 func move_platform(_delta):
 	# Calculate the direction towards the target point
+	
 	var direction_vector = (target_point - position).normalized()
 
 	# Set the platform's velocity based on direction and speed

@@ -22,5 +22,5 @@ func _on_hitbox_body_entered(body):
 	if body.is_in_group("Shootable"):
 		body.target_hit()
 		queue_free()
-	if body.name == "TileMap":
+	if not body.is_in_group("Player"):
 		queue_free()

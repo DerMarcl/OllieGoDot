@@ -5,7 +5,7 @@ extends Node
 @export var Hourglass : Array[Node]
 
 var main_scene = null
-var current_level_id = 1
+var current_level_id = 11
 var despawned_objects = []
 
 enum PossiblePowers {
