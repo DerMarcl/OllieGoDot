@@ -89,3 +89,5 @@ func mark_as_despawned(object_name: String):
 func is_despawned(object_name: String) -> bool:
 	var unique_id = object_name + "_" + str(current_level_id)  # Combine name and level ID
 	return unique_id in despawned_objects
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://brjdsujauuo4l"]
+[gd_scene load_steps=19 format=3 uid="uid://brjdsujauuo4l"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_yxp0q"]
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="2_2kss8"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://lo6rj8ytakga" path="res://Objekte/spawn_point.tscn" id="6_b5h5o"]
 [ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Objekte/Portal_Goal.tscn" id="7_68vxu"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="8_fhqy5"]
-[ext_resource type="Script" path="res://Scenen/Pause.gd" id="9_vv3s5"]
 [ext_resource type="Script" path="res://Scenen/fallArea.gd" id="10_sbih0"]
 [ext_resource type="PackedScene" uid="uid://p0kibpto1ux5" path="res://Objekte/Bonk_box.tscn" id="11_ns7mg"]
 [ext_resource type="PackedScene" uid="uid://dg3h6a6hjnsm3" path="res://Objekte/red_potion.tscn" id="12_cwunf"]
@@ -482,9 +481,6 @@ sources/0 = SubResource("TileSetAtlasSource_rw3bd")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an831"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y74j"]
-bg_color = Color(0, 0, 0, 1)
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_erjl0"]
 
 [node name="Node" type="Node"]
@@ -607,64 +603,6 @@ layout_mode = 2
 texture = ExtResource("8_fhqy5")
 expand_mode = 2
 
-[node name="Pause" type="Node" parent="UI"]
-script = ExtResource("9_vv3s5")
-
-[node name="PausePanel" type="Panel" parent="UI/Pause"]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="UI/Pause/PausePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -179.0
-offset_top = -109.0
-offset_right = 179.0
-offset_bottom = 109.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "PAUSIERT"
-horizontal_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause/PausePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -239.0
-offset_top = -20.0
-offset_right = 248.0
-offset_bottom = 146.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 15
-
-[node name="Resume" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_3y74j")
-text = "Zurück"
-
-[node name="MainMenu" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_3y74j")
-text = "Hauptmenü"
-
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -708,7 +646,4 @@ move_speed = 400
 point_b = Vector2(0, -800)
 event_name = "FirstPlatform"
 
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

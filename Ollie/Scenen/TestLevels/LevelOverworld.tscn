@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://cfru6sy4srs3h"]
+[gd_scene load_steps=24 format=3 uid="uid://cfru6sy4srs3h"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_phtki"]
+[ext_resource type="PackedScene" uid="uid://4b0rkrqlxopm" path="res://PauseMenü.tscn" id="2_f30fp"]
 [ext_resource type="Texture2D" uid="uid://b8qr1cbj2qwku" path="res://AssetPacks/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="2_kepam"]
 [ext_resource type="Texture2D" uid="uid://d1pd46x112yoq" path="res://Sprites/48x48 trees.png" id="3_6xtlg"]
 [ext_resource type="Texture2D" uid="uid://l8ayrglej43f" path="res://Free/Terrain/Terrain (16x16).png" id="3_ioyd3"]
@@ -1676,16 +1677,9 @@ unique_name_in_owner = true
 script = ExtResource("1_phtki")
 hearts = [null, null, null]
 
-[node name="SceneObjects" type="Node" parent="."]
+[node name="Pause" parent="." instance=ExtResource("2_f30fp")]
 
-[node name="TextureRect" type="TextureRect" parent="SceneObjects"]
-visible = false
-texture_filter = 1
-offset_left = -187.0
-offset_top = -813.0
-offset_right = 2329.0
-offset_bottom = 671.0
-texture = ExtResource("2_kepam")
+[node name="SceneObjects" type="Node" parent="."]
 
 [node name="Tree" type="Node" parent="SceneObjects"]
 
