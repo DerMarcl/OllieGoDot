@@ -1970,8 +1970,8 @@ position = Vector2(10481, 534)
 [node name="GoldCoin23" parent="." instance=ExtResource("7_b02bn")]
 position = Vector2(10559, 534)
 
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
 [connection signal="body_entered" from="Hourglass" to="Hourglass" method="_on_body_entered"]
 [connection signal="body_entered" from="Hourglass2" to="Hourglass2" method="_on_body_entered"]

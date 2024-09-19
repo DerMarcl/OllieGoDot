@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cfru6sy4srs3h"]
+[gd_scene load_steps=25 format=3 uid="uid://cfru6sy4srs3h"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_phtki"]
 [ext_resource type="PackedScene" uid="uid://4b0rkrqlxopm" path="res://PauseMenü.tscn" id="2_f30fp"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cidw085wtnpxw" path="res://AssetPacks/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="13_pllcx"]
 [ext_resource type="Texture2D" uid="uid://qr3oe7s3ghkl" path="res://AssetPacks/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="14_w6jmi"]
 [ext_resource type="Texture2D" uid="uid://driwawjscceq3" path="res://AssetPacks/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="15_w3svb"]
+[ext_resource type="PackedScene" uid="uid://yklfagd5rq3i" path="res://Objekte/transition.tscn" id="18_lpl04"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xa6wi"]
 atlas = ExtResource("3_6xtlg")
@@ -1726,7 +1727,6 @@ position = Vector2(99, 511)
 
 [node name="Camera2D" type="Camera2D" parent="SceneObjects/Ollie"]
 position = Vector2(-24, -9)
-zoom = Vector2(0.82, 0.82)
 limit_left = -190
 limit_top = -800
 limit_right = 4240
@@ -1852,3 +1852,7 @@ texture_filter = 1
 position = Vector2(1110, 164)
 scale = Vector2(14.3059, 14.403)
 texture = ExtResource("15_w3svb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Transition" parent="CanvasLayer" instance=ExtResource("18_lpl04")]

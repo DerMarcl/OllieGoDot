@@ -3,7 +3,7 @@ extends Area2D
 @export var target_level : int = 0
 @export var on_touch_transition : bool = true
 @export var target_spawnpoint: int = 0
-
+const TRANSITION = preload("res://Objekte/transition.tscn")
 func _ready():
 	pass
 
