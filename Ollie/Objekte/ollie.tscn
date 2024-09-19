@@ -430,6 +430,7 @@ size = Vector2(43, 127)
 texture_filter = 1
 position = Vector2(2, -53)
 collision_layer = 3
+platform_on_leave = 2
 script = ExtResource("1_evi1c")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -448,7 +449,7 @@ shape = SubResource("RectangleShape2D_1s6vf")
 wait_time = 0.25
 
 [node name="gun_out_timer" type="Timer" parent="."]
-wait_time = 0.15
+wait_time = 0.25
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]

@@ -3,12 +3,16 @@ extends Area2D
 @export var target_level : int = 0
 @export var on_touch_transition : bool = true
 @export var target_spawnpoint: int = 0
-const TRANSITION = preload("res://Objekte/transition.tscn")
+
+
+@export var is_goal = false
+
+
 func _ready():
 	pass
 
 func _on_body_entered(body):
-	if(body.name == "Ollie"):
+	if body.is_in_group("Player"):
 		if on_touch_transition:
 			level_transition()
 		else:
@@ -16,7 +20,7 @@ func _on_body_entered(body):
 			body.current_portal = self
 
 func _on_body_exited(body):
-	if(body.name == "Ollie"):
+	if body.is_in_group("Player"):
 		body.in_portal = false
 		body.current_portal = null
 

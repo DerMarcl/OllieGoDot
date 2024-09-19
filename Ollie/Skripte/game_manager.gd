@@ -5,7 +5,7 @@ extends Node
 @export var Hourglass : Array[Node]
 
 var main_scene = null
-var current_level_id = 11
+var current_level_id = 0
 var despawned_objects = []
 
 enum PossiblePowers {
@@ -28,6 +28,11 @@ func set_coins(new_coins : int):
 	print(new_coins)
 	coins_label.text = "Coins: " + str(Global.coins)
 	
+func kill_player():
+	decrease_healh()
+	while Global.lives != 3:
+		decrease_healh()
+
 func decrease_healh():
 	Global.lives -= 1
 	print(Global.lives)

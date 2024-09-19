@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://lyrqkf2wdof6"]
+
+[ext_resource type="Script" path="res://Trigger_Heap.gd" id="1_x1htn"]
+[ext_resource type="TileSet" uid="uid://df1lqwo1spnts" path="res://Scenen/Pirate level 1/Pirate1-1.tres" id="2_hpoxx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mnsc"]
+size = Vector2(60, 30)
+
+[node name="Trigger_Heap" type="Area2D"]
+script = ExtResource("1_x1htn")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_set = ExtResource("2_hpoxx")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 1, 5, -65535, 65537, 5)
+
+[node name="TileMap2" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_set = ExtResource("2_hpoxx")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 196609, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(58, -18)
+shape = SubResource("RectangleShape2D_2mnsc")

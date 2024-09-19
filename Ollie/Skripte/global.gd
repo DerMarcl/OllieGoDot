@@ -8,4 +8,4 @@ var Hourglasses = 0
 var cur_power = GameManager.PossiblePowers.NORMAL
 
 #for level transition
-var target_spawnpoint = 0
+var target_spawnpoint = 10

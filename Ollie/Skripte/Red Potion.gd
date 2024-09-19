@@ -30,7 +30,7 @@ func _physics_process(delta):
 		velocity.x = 0
 
 func _on_body_entered(body):
-	if(body.name == "Ollie"):
+	if body.is_in_group("Player"):
 		body.powerStateChange(gives_powerup)
 		queue_free()
 	else:

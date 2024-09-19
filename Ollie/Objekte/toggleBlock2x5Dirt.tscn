@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds8v4joxodv8b"]
+
+[ext_resource type="Script" path="res://Skripte/toggleBlock.gd" id="1_w48fy"]
+[ext_resource type="TileSet" uid="uid://df1lqwo1spnts" path="res://Scenen/Pirate level 1/Pirate1-1.tres" id="2_ftd8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w78i2"]
+size = Vector2(62.0001, 207)
+
+[node name="toggleBlock" type="Node2D"]
+script = ExtResource("1_w48fy")
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_set = ExtResource("2_ftd8t")
+format = 2
+layer_0/tile_data = PackedInt32Array(-131072, 1245185, 1, -65536, 1245185, 1, -131071, 1376257, 1, -65535, 1376257, 1, -327680, 1245185, 1, -262144, 1245185, 1, -196608, 1245185, 1, -327679, 1376257, 1, -262143, 1376257, 1, -196607, 1376257, 1)
+
+[node name="Area2D" type="Area2D" parent="TileMap"]
+scale = Vector2(0.333333, 0.333333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Area2D"]
+position = Vector2(47, -121.5)
+shape = SubResource("RectangleShape2D_w78i2")
+
+[connection signal="body_entered" from="TileMap/Area2D" to="." method="_on_area_2d_body_entered"]

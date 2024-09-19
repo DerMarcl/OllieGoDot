@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://vjd6lfvw1wmm"]
+[gd_scene load_steps=24 format=3 uid="uid://vjd6lfvw1wmm"]
 
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="1_p6d7b"]
 [ext_resource type="Texture2D" uid="uid://l8ayrglej43f" path="res://Free/Terrain/Terrain (16x16).png" id="2_gkgb0"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dfa3glkxp66pl" path="res://Objekte/Raptor.tscn" id="15_ltoyi"]
 [ext_resource type="PackedScene" uid="uid://yo600t536ie7" path="res://Objekte/target.tscn" id="16_3j2ee"]
 [ext_resource type="PackedScene" uid="uid://bpn7ui1kfybto" path="res://Objekte/moving_platform.tscn" id="17_40k51"]
+[ext_resource type="PackedScene" uid="uid://bx1b5pp3akvjf" path="res://Objekte/toggleBlock.tscn" id="18_wsjik"]
+[ext_resource type="PackedScene" uid="uid://lyrqkf2wdof6" path="res://Objekte/trigger_heap.tscn" id="19_j3ijg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("2_gkgb0")
@@ -557,7 +559,7 @@ on_touch_transition = false
 target_spawnpoint = 2
 
 [node name="SpawnPoint" parent="SceneObjects/Portals_and_Spawns" instance=ExtResource("8_siggn")]
-position = Vector2(150, 510)
+position = Vector2(2035, 420)
 
 [node name="SpawnPoint1" parent="SceneObjects/Portals_and_Spawns" instance=ExtResource("8_siggn")]
 position = Vector2(2478, -441)
@@ -717,7 +719,8 @@ position = Vector2(1787, -382)
 position = Vector2(1787, -435)
 
 [node name="Dino" parent="." instance=ExtResource("15_ltoyi")]
-position = Vector2(2031, 371)
+position = Vector2(2283, 507)
+doesMove = true
 
 [node name="Bonk_Box3" parent="." instance=ExtResource("14_lobjv")]
 position = Vector2(543, 273)
@@ -731,6 +734,20 @@ position = Vector2(1215, 350)
 move_speed = 400
 point_b = Vector2(0, -700)
 event_name = "Test_platform"
+
+[node name="toggleBlock" parent="." instance=ExtResource("18_wsjik")]
+position = Vector2(240, 528)
+Visible_on = false
+toggle_Event = "Test_platform"
+
+[node name="toggleBlock2" parent="." instance=ExtResource("18_wsjik")]
+position = Vector2(240, 388)
+Visible_on = false
+toggle_Event = "Test_platform"
+
+[node name="Trigger_Heap" parent="." instance=ExtResource("19_j3ijg")]
+position = Vector2(145, 575)
+event_to_trigger = "Test_platform"
 
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]

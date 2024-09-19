@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 400.0
-const JUMP_VELOCITY = -950.0
+const JUMP_VELOCITY = -930.0
 
 const ACCELERATION_TIME = 0.04 # time to reach full speed on the ground
 const DECELERATION_TIME = 0.04 # time to fully stop on the ground
@@ -25,6 +25,7 @@ var has_backwards_walljump = true
 var does_spcial_action = false
 var does_moveable_action = false
 var is_in_air = false
+var can_shoot = true
 
 var coyote_timer = 0.0 # tracks how long we've been off the ground
 var grace_timer = 0.0 # tracks how long since last wall jump
@@ -119,7 +120,7 @@ func _physics_process(delta):
 	
 	
 	if power_state != GameManager.PossiblePowers.NORMAL and Input.is_action_just_pressed("action"):
-		if power_state == GameManager.PossiblePowers.PIRATE:
+		if power_state == GameManager.PossiblePowers.PIRATE and can_shoot:
 			shoot_bullet()
 		if power_state == GameManager.PossiblePowers.CAVEMAN and not does_spcial_action:
 			club_slash()
@@ -156,7 +157,9 @@ func _physics_process(delta):
 	
 
 	if in_portal and Input.is_action_just_pressed("up") and is_on_floor():
-		current_portal.level_transition()
+		if current_portal != null:
+			current_portal.level_transition()
+			current_portal = null
 		
 	if sprite_2d.flip_h:
 		cur_direction = -1
@@ -180,6 +183,7 @@ func shoot_bullet():
 	get_parent().add_child(Bullet)
 	sprite_2d.animation = "Pirate_shoot"
 	does_moveable_action = true
+	can_shoot = false
 	$gun_out_timer.start()
 	
 func club_slash():
@@ -214,6 +218,7 @@ func _on_hitbox_timer_bonk_timeout():
 
 func _on_gun_out_timer_timeout():
 	does_moveable_action = false
+	can_shoot = true
 
 func Zap_powerup():
 	print("Zapped")

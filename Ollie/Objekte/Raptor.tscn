@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfa3glkxp66pl"]
+[gd_scene load_steps=15 format=3 uid="uid://dfa3glkxp66pl"]
 
 [ext_resource type="Script" path="res://Skripte/wood_enemy.gd" id="1_gbwj1"]
 [ext_resource type="Texture2D" uid="uid://cplqv05v7kko5" path="res://Sprites/NewDino.png" id="1_mm7ol"]
@@ -73,7 +73,10 @@ size = Vector2(165, 80)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ax14"]
 size = Vector2(69.5, 45.5)
 
-[node name="Node2D" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrvsf"]
+size = Vector2(19, 92)
+
+[node name="Raptor" type="CharacterBody2D"]
 script = ExtResource("1_gbwj1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -91,3 +94,16 @@ shape = SubResource("RectangleShape2D_c1f55")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(50, -41)
 shape = SubResource("RectangleShape2D_4ax14")
+
+[node name="Attackbox" type="Area2D" parent="."]
+position = Vector2(0, 4.54747e-13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attackbox"]
+position = Vector2(83.5, 7)
+shape = SubResource("RectangleShape2D_jrvsf")
+
+[node name="Hit_buffer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="Attackbox" to="." method="_on_attackbox_body_entered"]
+[connection signal="timeout" from="Hit_buffer" to="." method="_on_hit_buffer_timeout"]
