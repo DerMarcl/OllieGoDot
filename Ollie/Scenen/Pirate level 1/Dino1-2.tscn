@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ds8v4joxodv8b" path="res://Objekte/toggleBlock2x5Dirt.tscn" id="15_1ibbc"]
 [ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://Objekte/GoldCoin.tscn" id="16_ee5cf"]
 [ext_resource type="PackedScene" uid="uid://drn7hj7yjx4xb" path="res://Objekte/toggleBlock2x2Grass.tscn" id="17_qqawh"]
+[ext_resource type="PackedScene" uid="uid://dfa3glkxp66pl" path="res://Objekte/Raptor.tscn" id="18_jmiye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("3_1sfh6")
@@ -498,10 +499,10 @@ hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart"), NodePath("../UI/Hearts/H
 
 [node name="TextureRect" type="TextureRect" parent="SceneObjects"]
 texture_filter = 1
-offset_left = -505.0
-offset_top = -1594.0
-offset_right = 5873.0
-offset_bottom = 1286.0
+offset_left = -1057.0
+offset_top = -1860.0
+offset_right = 8603.0
+offset_bottom = 1581.0
 texture = ExtResource("2_2kss8")
 stretch_mode = 1
 
@@ -520,7 +521,7 @@ layer_0/tile_data = PackedInt32Array(-327688, 1310721, 1, -262152, 1310721, 1, -
 
 [node name="Ollie" parent="SceneObjects" instance=ExtResource("5_oqfp0")]
 z_index = 1
-position = Vector2(6046, -490)
+position = Vector2(62, 462)
 
 [node name="Camera2D" type="Camera2D" parent="SceneObjects/Ollie"]
 position = Vector2(-24, -9)
@@ -642,6 +643,12 @@ position = Vector2(7195, 13)
 target_level = 11
 on_touch_transition = false
 target_spawnpoint = 11
+
+[node name="Portal12" parent="SceneObjects/Portals_and_Spawns" instance=ExtResource("7_68vxu")]
+position = Vector2(8018, 237)
+target_level = 1
+target_spawnpoint = 11
+Requirement = 3
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -817,5 +824,11 @@ event_to_trigger = "TargetShoot5_12"
 
 [node name="GoldCoin2" parent="." instance=ExtResource("16_ee5cf")]
 position = Vector2(38, 479)
+
+[node name="Raptor" parent="." instance=ExtResource("18_jmiye")]
+position = Vector2(7466, 549)
+doesRespawn = true
+doesMove = true
+speed = 350
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

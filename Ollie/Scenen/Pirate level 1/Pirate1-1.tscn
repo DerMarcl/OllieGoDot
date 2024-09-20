@@ -501,9 +501,9 @@ hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart"), NodePath("../UI/Hearts/H
 [node name="TextureRect" type="TextureRect" parent="SceneObjects"]
 texture_filter = 1
 offset_left = -852.0
-offset_top = -1497.0
-offset_right = 5378.0
-offset_bottom = 1294.0
+offset_top = -1946.0
+offset_right = 8039.0
+offset_bottom = 1408.0
 texture = ExtResource("2_f7mhp")
 stretch_mode = 1
 
@@ -523,7 +523,7 @@ layer_0/tile_data = PackedInt32Array(589830, 2031619, 14, 589831, 131075, 14, 85
 
 [node name="Ollie" parent="SceneObjects" instance=ExtResource("4_riuxc")]
 z_index = 1
-position = Vector2(75, 495)
+position = Vector2(82, 506)
 
 [node name="Camera2D" type="Camera2D" parent="SceneObjects/Ollie"]
 position = Vector2(-20, -5)

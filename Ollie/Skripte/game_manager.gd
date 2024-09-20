@@ -11,7 +11,8 @@ var despawned_objects = []
 enum PossiblePowers {
 	NORMAL,
 	PIRATE,
-	CAVEMAN
+	CAVEMAN,
+	DINORIDER
 }
 
 func set_main_scene(scene):

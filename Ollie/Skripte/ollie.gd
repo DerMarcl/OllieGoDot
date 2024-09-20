@@ -102,9 +102,11 @@ func _physics_process(delta):
 					sprite_2d.animation = "Caveman_run"
 				else:
 					sprite_2d.animation = "Caveman_idle"
+			GameManager.PossiblePowers.DINORIDER:
+				sprite_2d.animation = "Dino_Riding"
 	# Add the gravity.
 	
-	if is_on_wall_only() and ((direction < 0 and sprite_2d.flip_h) or (direction > 0 and not sprite_2d.flip_h)):
+	if is_on_wall_only() and not sprite_2d.animation == "Dino_Riding" and ((direction < 0 and sprite_2d.flip_h) or (direction > 0 and not sprite_2d.flip_h)):
 		has_walljump = true
 	else:
 		has_walljump = false
@@ -116,7 +118,10 @@ func _physics_process(delta):
 		if velocity.y >= 300 and wallslide:
 			velocity.y = 300
 	else:
-		has_backwards_walljump = true
+		if not sprite_2d.animation == "Dino_Riding":
+			has_backwards_walljump = true
+		else:
+			has_backwards_walljump = false
 	
 	
 	if power_state != GameManager.PossiblePowers.NORMAL and Input.is_action_just_pressed("action"):
@@ -126,6 +131,7 @@ func _physics_process(delta):
 			club_slash()
 	
 	# Handle jump.
+	
 	if Input.is_action_just_pressed("jump") and not does_spcial_action and ((is_on_floor() or coyote_timer > 0.0) or (is_on_wall_only() and direction and (has_walljump or has_backwards_walljump))):
 		velocity.y = JUMP_VELOCITY 
 		sfx_jump.play()
@@ -143,7 +149,9 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	grace_timer = max(grace_timer - delta, 0)
 	if grace_timer == 0:
-		if direction and not does_spcial_action:
+		if sprite_2d.animation == "Dino_Riding":
+			velocity.x = move_toward(velocity.x, cur_direction * SPEED, adjusted_acceleration * delta)
+		elif (direction and not does_spcial_action):
 			velocity.x = move_toward(velocity.x, direction * SPEED, adjusted_acceleration * delta)
 		elif does_spcial_action:
 			velocity.x = move_toward(velocity.x, 0, adjusted_deceleration * delta * 0.3)
@@ -151,7 +159,7 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, adjusted_deceleration * delta)
 	move_and_slide()
 	
-	if velocity.x != 0 and is_on_floor():
+	if direction != 0 and is_on_floor():
 		var isLeft = velocity.x < 0
 		sprite_2d.flip_h = isLeft 
 		cur_direction = direction
@@ -162,10 +170,10 @@ func _physics_process(delta):
 			current_portal.level_transition()
 			current_portal = null
 		
-	if sprite_2d.flip_h:
-		cur_direction = -1
-	else:
-		cur_direction = 1
+	#if sprite_2d.flip_h:
+		#cur_direction = -1
+	#else:
+		#cur_direction = 1
 	
 	
 func powerStateChange(new_power_state : GameManager.PossiblePowers):
