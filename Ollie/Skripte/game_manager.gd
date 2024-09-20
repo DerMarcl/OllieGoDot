@@ -78,6 +78,8 @@ func _level_selector_deferred():
 			get_tree().change_scene_to_file("res://Scenen/Pirate level 1/Pirate1-1.tscn")
 		12:
 			get_tree().change_scene_to_file("res://Scenen/Pirate level 1/Dino1-2.tscn")
+		10:
+			get_tree().change_scene_to_file("res://Scenen/TestLevels/LevelOverworld.tscn")
 		_:
 			get_tree().change_scene_to_file("res://Scenen/main_menu.tscn")
 			
@@ -90,7 +92,7 @@ func mark_as_despawned(object_name: String):
 	if unique_id not in despawned_objects:
 		despawned_objects.append(unique_id)
 
-# Check if an object is despawned by its name and the level ID
+#d Check if an object is despawned by its name and the level ID
 func is_despawned(object_name: String) -> bool:
 	var unique_id = object_name + "_" + str(current_level_id)  # Combine name and level ID
 	return unique_id in despawned_objects

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpnbihyxd4mk4"]
+
+[ext_resource type="AudioStream" uid="uid://dj8x2imiwveob" path="res://Sounds/Platformer_Games_Volume_1_Track_7_Gameplay_Ambience.mp3" id="1_qbmns"]
+
+[node name="Background Music level1" type="AudioStreamPlayer2D"]
+position = Vector2(-75, -495)
+stream = ExtResource("1_qbmns")
+volume_db = -12.424
+autoplay = true

@@ -11,7 +11,7 @@ const COYOTE_TIME = 0.2 # time in seconds to allow jumping after leaving the gro
 const WALLJUMP_GRACE = 0.3 #time after walljump where pressing the opposite way doesnt do anything
 
 @onready var sprite_2d = $Sprite2D
-
+@onready var sfx_jump = $sfx_jump
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -128,6 +128,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and not does_spcial_action and ((is_on_floor() or coyote_timer > 0.0) or (is_on_wall_only() and direction and (has_walljump or has_backwards_walljump))):
 		velocity.y = JUMP_VELOCITY 
+		sfx_jump.play()
 		coyote_timer = 0.0 # Reset the coyote timer after a jump
 		
 		if wallslide:

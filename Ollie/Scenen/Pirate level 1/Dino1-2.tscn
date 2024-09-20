@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://brjdsujauuo4l"]
+[gd_scene load_steps=23 format=3 uid="uid://brjdsujauuo4l"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_yxp0q"]
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="2_2kss8"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://df1lqwo1spnts" path="res://Scenen/Pirate level 1/Pirate1-1.tres" id="4_mdib4"]
 [ext_resource type="PackedScene" uid="uid://daruyvrj422vn" path="res://Objekte/ollie.tscn" id="5_oqfp0"]
 [ext_resource type="PackedScene" uid="uid://lo6rj8ytakga" path="res://Objekte/spawn_point.tscn" id="6_b5h5o"]
+[ext_resource type="PackedScene" uid="uid://dpnbihyxd4mk4" path="res://Sounds/background_music_level_1.tscn" id="6_rhujs"]
 [ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Objekte/Portal_Goal.tscn" id="7_68vxu"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="8_fhqy5"]
 [ext_resource type="Script" path="res://Scenen/fallArea.gd" id="10_sbih0"]
@@ -525,6 +526,8 @@ position = Vector2(6046, -490)
 position = Vector2(-24, -9)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
+
+[node name="Background Music level1" parent="SceneObjects/Ollie" instance=ExtResource("6_rhujs")]
 
 [node name="Collectables" type="Node" parent="SceneObjects"]
 

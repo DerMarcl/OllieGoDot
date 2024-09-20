@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bktnftgnk7i80"]
+[gd_scene load_steps=14 format=3 uid="uid://bktnftgnk7i80"]
 
 [ext_resource type="Texture2D" uid="uid://cd7h43ij72n75" path="res://Sprites/DinoRidingV2.png" id="1_586iv"]
 [ext_resource type="Script" path="res://Skripte/Ollie_DinoRider.gd" id="1_o4w0g"]
+[ext_resource type="AudioStream" uid="uid://dr63bvoj023ct" path="res://Sounds/Jump_sound.mp3" id="3_bkmav"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_26kv6"]
 atlas = ExtResource("1_586iv")
@@ -86,5 +87,9 @@ shape = SubResource("RectangleShape2D_s1tn5")
 
 [node name="Knockback_Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="sfx_jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bkmav")
+volume_db = -14.322
 
 [connection signal="timeout" from="Knockback_Timer" to="." method="_on_knockback_timer_timeout"]

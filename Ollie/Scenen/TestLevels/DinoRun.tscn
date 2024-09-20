@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c7a0c8iqcr8kl"]
+[gd_scene load_steps=29 format=3 uid="uid://c7a0c8iqcr8kl"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_cadtc"]
 [ext_resource type="Texture2D" uid="uid://bwokdeuynjg4c" path="res://AssetPacks/Jungle Asset Pack/parallax background/plx-1.png" id="2_c1mo4"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Scenen/Main_Scene.gd" id="9_p1yn6"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="10_88btk"]
 [ext_resource type="Script" path="res://Scenen/Pause.gd" id="11_bx4xu"]
+[ext_resource type="PackedScene" uid="uid://c2837kd3wyuvx" path="res://Sounds/bgm.tscn" id="11_jx4na"]
 [ext_resource type="Texture2D" uid="uid://l5horbicl04t" path="res://Sprites/Hourglass_slot.png" id="16_5ogjn"]
 [ext_resource type="Texture2D" uid="uid://ld6pm8up4w4s" path="res://Sprites/Hourglass_Collected.png" id="17_lyxxn"]
 [ext_resource type="PackedScene" uid="uid://5blwshmkciw8" path="res://Objekte/Hourglass.tscn" id="18_laj18"]
@@ -1636,12 +1637,10 @@ limit_bottom = 650
 position_smoothing_enabled = true
 editor_draw_limits = true
 
-[node name="Portals_and_Spawns" type="Node" parent="SceneObjects"]
+[node name="BGM" parent="SceneObjects/DinoRider" instance=ExtResource("11_jx4na")]
+volume_db = -23.111
 
-[node name="Portal2" parent="SceneObjects/Portals_and_Spawns" instance=ExtResource("5_p6pn2")]
-position = Vector2(14647, 418)
-target_level = 1
-on_touch_transition = false
+[node name="Portals_and_Spawns" type="Node" parent="SceneObjects"]
 
 [node name="SpawnPoint0" parent="SceneObjects/Portals_and_Spawns" instance=ExtResource("6_kiy3g")]
 position = Vector2(74, 543)
@@ -1653,6 +1652,10 @@ spawn_index = 1
 [node name="SpawnPoint2" parent="SceneObjects/Portals_and_Spawns" instance=ExtResource("6_kiy3g")]
 position = Vector2(2445, 448)
 spawn_index = 2
+
+[node name="Portal1" parent="SceneObjects/Portals_and_Spawns" instance=ExtResource("5_p6pn2")]
+position = Vector2(14402, 403)
+target_level = 10
 
 [node name="Wood-Enemy" parent="." instance=ExtResource("8_sf00k")]
 position = Vector2(1474, 531)

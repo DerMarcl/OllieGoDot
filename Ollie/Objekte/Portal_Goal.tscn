@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://r4r0htvmigi7"]
+[gd_scene load_steps=14 format=3 uid="uid://r4r0htvmigi7"]
 
 [ext_resource type="Script" path="res://Skripte/Portal_Goal.gd" id="1_is72j"]
 [ext_resource type="Texture2D" uid="uid://1348m73h5dmf" path="res://Sprites/Purple Portal Sprite Sheet.png" id="1_r48gw"]
+[ext_resource type="Texture2D" uid="uid://i27uu7r1trh1" path="res://Sprites/Arrow.png" id="3_e0dqs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_veugf"]
 atlas = ExtResource("1_r48gw")
@@ -86,6 +87,15 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)
 shape = SubResource("CapsuleShape2D_0pjmw")
+
+[node name="ArrowUp" type="TextureRect" parent="."]
+visible = false
+offset_left = -40.0
+offset_top = -155.0
+offset_right = 216.0
+offset_bottom = 101.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_e0dqs")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

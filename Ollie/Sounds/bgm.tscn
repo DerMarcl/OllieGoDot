@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2837kd3wyuvx"]
+
+[ext_resource type="AudioStream" uid="uid://cm64a6ai3id4d" path="res://Sounds/DinoRunBGM.mp3" id="1_00qnb"]
+
+[node name="BGM" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_00qnb")
+volume_db = -14.444
+autoplay = true
