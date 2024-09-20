@@ -65,3 +65,9 @@ func _on_attackbox_body_entered(body):
 
 func _on_hit_buffer_timeout():
 	Good_to_turn = true
+
+
+func _on_mountbox_body_entered(body):
+	if body.is_in_group("Player"):
+		body.powerStateChange(GameManager.PossiblePowers.DINORIDER)
+		queue_free()

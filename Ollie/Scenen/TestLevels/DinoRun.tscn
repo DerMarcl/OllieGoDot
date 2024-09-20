@@ -1656,24 +1656,31 @@ spawn_index = 2
 
 [node name="Wood-Enemy" parent="." instance=ExtResource("8_sf00k")]
 position = Vector2(1474, 531)
+doesRespawn = true
 
 [node name="Wood-Enemy2" parent="." instance=ExtResource("8_sf00k")]
 position = Vector2(4643, 536)
+doesRespawn = true
 
 [node name="Wood-Enemy3" parent="." instance=ExtResource("8_sf00k")]
 position = Vector2(5478, 536)
+doesRespawn = true
 
 [node name="Wood-Enemy4" parent="." instance=ExtResource("8_sf00k")]
 position = Vector2(6228, 533)
+doesRespawn = true
 
 [node name="Wood-Enemy5" parent="." instance=ExtResource("8_sf00k")]
 position = Vector2(7970, 526)
+doesRespawn = true
 
 [node name="Wood-Enemy6" parent="." instance=ExtResource("8_sf00k")]
 position = Vector2(8824, 524)
+doesRespawn = true
 
 [node name="Wood-Enemy7" parent="." instance=ExtResource("8_sf00k")]
 position = Vector2(9212, 520)
+doesRespawn = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("9_p1yn6")
