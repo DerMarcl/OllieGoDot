@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://brjdsujauuo4l"]
+[gd_scene load_steps=30 format=3 uid="uid://brjdsujauuo4l"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_yxp0q"]
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="2_2kss8"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cady6ued4yi3x" path="res://AssetPacks/Jungle Asset Pack/parallax background/plx-5.png" id="7_xwpfe"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="8_fhqy5"]
 [ext_resource type="Script" path="res://Scenen/fallArea.gd" id="10_sbih0"]
+[ext_resource type="PackedScene" uid="uid://yklfagd5rq3i" path="res://Objekte/transition.tscn" id="11_e5htu"]
 [ext_resource type="PackedScene" uid="uid://p0kibpto1ux5" path="res://Objekte/Bonk_box.tscn" id="11_ns7mg"]
 [ext_resource type="PackedScene" uid="uid://b5itj6h1my1vc" path="res://Objekte/purple_lightning.tscn" id="13_v64df"]
 [ext_resource type="PackedScene" uid="uid://yo600t536ie7" path="res://Objekte/target.tscn" id="14_qmwjj"]
@@ -23,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://drn7hj7yjx4xb" path="res://Objekte/toggleBlock2x2Grass.tscn" id="17_qqawh"]
 [ext_resource type="PackedScene" uid="uid://dfa3glkxp66pl" path="res://Objekte/Raptor.tscn" id="18_jmiye"]
 [ext_resource type="PackedScene" uid="uid://5blwshmkciw8" path="res://Objekte/Hourglass.tscn" id="25_0xy52"]
-[ext_resource type="PackedScene" uid="uid://gyyrrf6j02na" path="res://Objekte/Caveman_potion.tscn" id="25_vkjte"]
+[ext_resource type="PackedScene" path="res://Objekte/Caveman_potion.tscn" id="25_vkjte"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("3_1sfh6")
@@ -583,6 +584,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 editor_draw_limits = true
 
+[node name="Transition" parent="SceneObjects/Ollie/Camera2D" instance=ExtResource("11_e5htu")]
+
 [node name="Background Music level1" parent="SceneObjects/Ollie" instance=ExtResource("6_rhujs")]
 
 [node name="Collectables" type="Node" parent="SceneObjects"]
@@ -701,8 +704,7 @@ target_spawnpoint = 11
 
 [node name="Portal12" parent="SceneObjects/Portals_and_Spawns" instance=ExtResource("7_68vxu")]
 position = Vector2(8018, 237)
-target_level = 1
-target_spawnpoint = 11
+target_level = 20
 Requirement = 3
 
 [node name="UI" type="CanvasLayer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c7a0c8iqcr8kl"]
+[gd_scene load_steps=30 format=3 uid="uid://c7a0c8iqcr8kl"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_cadtc"]
 [ext_resource type="Texture2D" uid="uid://bwokdeuynjg4c" path="res://AssetPacks/Jungle Asset Pack/parallax background/plx-1.png" id="2_c1mo4"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c30rvy2n3ucc6" path="res://Objekte/wood_enemy.tscn" id="8_sf00k"]
 [ext_resource type="Script" path="res://Scenen/Main_Scene.gd" id="9_p1yn6"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="10_88btk"]
+[ext_resource type="PackedScene" uid="uid://yklfagd5rq3i" path="res://Objekte/transition.tscn" id="11_2emwb"]
 [ext_resource type="Script" path="res://Scenen/Pause.gd" id="11_bx4xu"]
 [ext_resource type="PackedScene" uid="uid://c2837kd3wyuvx" path="res://Sounds/bgm.tscn" id="11_jx4na"]
 [ext_resource type="Texture2D" uid="uid://l5horbicl04t" path="res://Sprites/Hourglass_slot.png" id="16_5ogjn"]
@@ -1625,10 +1626,10 @@ layer_0/tile_data = PackedInt32Array(786432, 393217, 2, 786433, 393217, 2, 78643
 
 [node name="Collectables" type="Node" parent="SceneObjects"]
 
-[node name="DinoRider" parent="SceneObjects" instance=ExtResource("4_xd40h")]
+[node name="Ollie" parent="SceneObjects" instance=ExtResource("4_xd40h")]
 position = Vector2(481, 484)
 
-[node name="Camera2D" type="Camera2D" parent="SceneObjects/DinoRider"]
+[node name="Camera2D" type="Camera2D" parent="SceneObjects/Ollie"]
 position = Vector2(91, -157)
 limit_left = 0
 limit_top = -338
@@ -1637,7 +1638,13 @@ limit_bottom = 650
 position_smoothing_enabled = true
 editor_draw_limits = true
 
-[node name="BGM" parent="SceneObjects/DinoRider" instance=ExtResource("11_jx4na")]
+[node name="Transition" parent="SceneObjects/Ollie/Camera2D" instance=ExtResource("11_2emwb")]
+offset_left = -91.0
+offset_top = 157.0
+offset_right = -91.0
+offset_bottom = 157.0
+
+[node name="BGM" parent="SceneObjects/Ollie" instance=ExtResource("11_jx4na")]
 volume_db = -23.111
 
 [node name="Portals_and_Spawns" type="Node" parent="SceneObjects"]

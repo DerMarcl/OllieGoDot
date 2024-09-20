@@ -81,6 +81,8 @@ func _level_selector_deferred():
 			get_tree().change_scene_to_file("res://Scenen/Pirate level 1/Dino1-2.tscn")
 		10:
 			get_tree().change_scene_to_file("res://Scenen/TestLevels/LevelOverworld.tscn")
+		20:
+			get_tree().change_scene_to_file("res://Scenen/TestLevels/DinoRun.tscn")
 		_:
 			get_tree().change_scene_to_file("res://Scenen/main_menu.tscn")
 			

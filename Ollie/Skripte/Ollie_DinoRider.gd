@@ -12,6 +12,8 @@ var velo: Vector2 = Vector2()
 var is_in_air = false
 var knockback = false
 var timer = false
+var in_portal = true
+var current_portal = null
 
 func jump():
 	velocity.y = jump_force
