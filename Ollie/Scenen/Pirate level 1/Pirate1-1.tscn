@@ -1,10 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://duxnp7s40g5eh"]
+[gd_scene load_steps=28 format=3 uid="uid://duxnp7s40g5eh"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_aj1by"]
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="2_f7mhp"]
+[ext_resource type="Texture2D" uid="uid://b8qr1cbj2qwku" path="res://AssetPacks/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="2_rj2m0"]
+[ext_resource type="Texture2D" uid="uid://e7r6crt1pfvu" path="res://AssetPacks/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="3_60biq"]
 [ext_resource type="Texture2D" uid="uid://l8ayrglej43f" path="res://Free/Terrain/Terrain (16x16).png" id="3_k4rpm"]
 [ext_resource type="TileSet" uid="uid://df1lqwo1spnts" path="res://Scenen/Pirate level 1/Pirate1-1.tres" id="4_gpcbn"]
 [ext_resource type="PackedScene" uid="uid://daruyvrj422vn" path="res://Objekte/ollie.tscn" id="4_riuxc"]
+[ext_resource type="Texture2D" uid="uid://cidw085wtnpxw" path="res://AssetPacks/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="4_ym5yl"]
+[ext_resource type="Texture2D" uid="uid://qr3oe7s3ghkl" path="res://AssetPacks/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="5_0dmlq"]
+[ext_resource type="Texture2D" uid="uid://driwawjscceq3" path="res://AssetPacks/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="6_0atny"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="8_48wt5"]
 [ext_resource type="Script" path="res://Scenen/Pause.gd" id="9_70btx"]
 [ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Objekte/Portal_Goal.tscn" id="9_xgh4l"]
@@ -15,8 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://lyrqkf2wdof6" path="res://Objekte/trigger_heap.tscn" id="13_a77da"]
 [ext_resource type="PackedScene" uid="uid://yo600t536ie7" path="res://Objekte/target.tscn" id="14_g1uaq"]
 [ext_resource type="PackedScene" uid="uid://b5itj6h1my1vc" path="res://Objekte/purple_lightning.tscn" id="15_fatrt"]
-[ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://Objekte/GoldCoin.tscn" id="16_stsiv"]
 [ext_resource type="AudioStream" uid="uid://dj8x2imiwveob" path="res://Sounds/Platformer_Games_Volume_1_Track_7_Gameplay_Ambience.mp3" id="17_dtqpv"]
+[ext_resource type="PackedScene" uid="uid://5blwshmkciw8" path="res://Objekte/Hourglass.tscn" id="22_68gkd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("3_k4rpm")
@@ -498,7 +503,55 @@ hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart"), NodePath("../UI/Hearts/H
 
 [node name="SceneObjects" type="Node" parent="."]
 
+[node name="Beach" type="ParallaxBackground" parent="SceneObjects"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="SceneObjects/Beach"]
+position = Vector2(-30, 288)
+
+[node name="Sprite2D" type="Sprite2D" parent="SceneObjects/Beach/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(3545.5, -594.502)
+scale = Vector2(19.9714, 19.7109)
+texture = ExtResource("2_rj2m0")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="SceneObjects/Beach"]
+position = Vector2(-30, 288)
+
+[node name="Sprite2D" type="Sprite2D" parent="SceneObjects/Beach/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(3546.25, -1627.75)
+scale = Vector2(17.1194, 4.67822)
+texture = ExtResource("3_60biq")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="SceneObjects/Beach"]
+position = Vector2(-30, 288)
+
+[node name="Sprite2D" type="Sprite2D" parent="SceneObjects/Beach/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(3088, -1631)
+scale = Vector2(14.3939, 13.6173)
+texture = ExtResource("4_ym5yl")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="SceneObjects/Beach"]
+position = Vector2(-30, 288)
+
+[node name="Sprite2D" type="Sprite2D" parent="SceneObjects/Beach/ParallaxLayer4"]
+texture_filter = 1
+position = Vector2(3634, 104)
+scale = Vector2(34.3824, 38.6015)
+texture = ExtResource("5_0dmlq")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="SceneObjects/Beach"]
+position = Vector2(-30, 288)
+
+[node name="Sprite2D" type="Sprite2D" parent="SceneObjects/Beach/ParallaxLayer5"]
+texture_filter = 1
+position = Vector2(3723, 104)
+scale = Vector2(36.0059, 38.7007)
+texture = ExtResource("6_0atny")
+
 [node name="TextureRect" type="TextureRect" parent="SceneObjects"]
+visible = false
 texture_filter = 1
 offset_left = -852.0
 offset_top = -1946.0
@@ -527,6 +580,7 @@ position = Vector2(82, 506)
 
 [node name="Camera2D" type="Camera2D" parent="SceneObjects/Ollie"]
 position = Vector2(-20, -5)
+zoom = Vector2(0.95, 0.95)
 limit_left = -195
 limit_top = -1570
 limit_right = 7320
@@ -877,8 +931,8 @@ position = Vector2(7090, 321)
 [node name="Purple_Lightning2" parent="." instance=ExtResource("15_fatrt")]
 position = Vector2(7090, 79)
 
-[node name="GoldCoin" parent="." instance=ExtResource("16_stsiv")]
-position = Vector2(5820, -912)
+[node name="Node2D" parent="." instance=ExtResource("22_68gkd")]
+position = Vector2(5785, -897)
 
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]

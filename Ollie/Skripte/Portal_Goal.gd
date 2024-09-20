@@ -5,14 +5,11 @@ extends Area2D
 @export var target_spawnpoint: int = 0
 
 
-<<<<<<< HEAD
 
 @export var is_goal = false
 @onready var arrow_up = $ArrowUp
 
-=======
 @export var Requirement: GameManager.PossiblePowers = GameManager.PossiblePowers.NORMAL
->>>>>>> origin/main
 
 
 func _ready():
@@ -20,14 +17,13 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
-<<<<<<< HEAD
 		arrow_up.visible = true
 		if on_touch_transition:
 			level_transition()
 		else:
 			body.in_portal = true
 			body.current_portal = self
-=======
+
 		if Requirement == GameManager.PossiblePowers.NORMAL or body.power_state == Requirement:
 			if on_touch_transition:
 				level_transition()
@@ -35,7 +31,7 @@ func _on_body_entered(body):
 				body.in_portal = true
 				body.current_portal = self
 
->>>>>>> origin/main
+
 func _on_body_exited(body):
 	if body.is_in_group("Player"):
 		body.in_portal = false
