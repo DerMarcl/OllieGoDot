@@ -30,7 +30,7 @@ var can_shoot = true
 var coyote_timer = 0.0 # tracks how long we've been off the ground
 var grace_timer = 0.0 # tracks how long since last wall jump
 var in_portal = false #track if the player is in the portal area
-
+var transition
 var current_portal: Area2D = null
 
 var power_state: GameManager.PossiblePowers = GameManager.PossiblePowers.NORMAL
@@ -45,6 +45,7 @@ func _ready():
 	add_to_group("Player")
 	power_state = Global.cur_power
 	call_deferred("_find_spawn_container")
+	call_deferred("_find_transition")
 	$hitbox_Timer_Bonk.one_shot = true
 	$gun_out_timer.one_shot = true
 	
@@ -59,6 +60,13 @@ func _find_spawn_container():
 		if spawn_point is SpawnPoint and spawn_point.spawn_index == Global.target_spawnpoint:
 			position = spawn_point.global_position
 			break
+			
+func _find_transition():
+	var scene_objects = get_tree().current_scene.get_node("SceneObjects")
+	var ollie_object = scene_objects.get_node("Ollie")
+	var camera_object = ollie_object.get_node("Camera2D")
+	transition = camera_object.get_node("Transition")
+	transition.FadeIn()
 
 func _physics_process(delta):
 	is_in_air = not is_on_floor()

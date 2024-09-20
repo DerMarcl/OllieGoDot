@@ -3,6 +3,7 @@ class_name Transitioner
 
 @onready var animation_tex : TextureRect = $TextureRect
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
+
 func _ready():
 	animation_tex.visible = false
 

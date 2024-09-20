@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://brjdsujauuo4l"]
+[gd_scene load_steps=29 format=3 uid="uid://brjdsujauuo4l"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_yxp0q"]
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="2_2kss8"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://yo600t536ie7" path="res://Objekte/target.tscn" id="14_qmwjj"]
 [ext_resource type="PackedScene" uid="uid://bpn7ui1kfybto" path="res://Objekte/moving_platform.tscn" id="15_0djlq"]
 [ext_resource type="PackedScene" uid="uid://ds8v4joxodv8b" path="res://Objekte/toggleBlock2x5Dirt.tscn" id="15_1ibbc"]
-[ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://Objekte/GoldCoin.tscn" id="16_ee5cf"]
 [ext_resource type="PackedScene" uid="uid://drn7hj7yjx4xb" path="res://Objekte/toggleBlock2x2Grass.tscn" id="17_qqawh"]
 [ext_resource type="PackedScene" uid="uid://dfa3glkxp66pl" path="res://Objekte/Raptor.tscn" id="18_jmiye"]
 [ext_resource type="PackedScene" uid="uid://5blwshmkciw8" path="res://Objekte/Hourglass.tscn" id="25_0xy52"]
@@ -571,7 +570,7 @@ layer_0/tile_data = PackedInt32Array(-327688, 1310721, 1, -262152, 1310721, 1, -
 
 [node name="Ollie" parent="SceneObjects" instance=ExtResource("5_oqfp0")]
 z_index = 1
-position = Vector2(45, 500)
+position = Vector2(456, 359)
 
 [node name="Camera2D" type="Camera2D" parent="SceneObjects/Ollie"]
 position = Vector2(-24, -9)
@@ -860,9 +859,6 @@ event_to_trigger = "TargetShoot4_12"
 position = Vector2(7071, -907)
 event_to_trigger = "TargetShoot5_12"
 
-[node name="GoldCoin2" parent="." instance=ExtResource("16_ee5cf")]
-position = Vector2(38, 479)
-
 [node name="Raptor" parent="." instance=ExtResource("18_jmiye")]
 position = Vector2(7466, 549)
 doesRespawn = true
@@ -886,5 +882,8 @@ gives_powerup = 2
 
 [node name="Node2D" parent="." instance=ExtResource("25_0xy52")]
 position = Vector2(4736, -899)
+
+[node name="Node2D2" parent="." instance=ExtResource("25_0xy52")]
+position = Vector2(39, 497)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

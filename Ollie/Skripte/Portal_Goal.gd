@@ -3,7 +3,7 @@ extends Area2D
 @export var target_level : int = 0
 @export var on_touch_transition : bool = true
 @export var target_spawnpoint: int = 0
-
+var transition
 
 
 @export var is_goal = false
@@ -13,8 +13,15 @@ extends Area2D
 
 
 func _ready():
+	$FadeOutTimer.one_shot = true
+	call_deferred("_find_transition")
 	pass
-
+func _find_transition():
+	var scene_objects = get_tree().current_scene.get_node("SceneObjects")
+	var ollie_object = scene_objects.get_node("Ollie")
+	var camera_object = ollie_object.get_node("Camera2D")
+	transition = camera_object.get_node("Transition")
+	
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		arrow_up.visible = true
@@ -39,6 +46,12 @@ func _on_body_exited(body):
 		arrow_up.visible = false
 
 func level_transition():
+	transition.FadeOut()
+	$FadeOutTimer.start()
+	
+
+func _on_fade_out_timer_timeout():
 	Global.cur_coins = 0
 	Global.target_spawnpoint = target_spawnpoint
 	GameManager.level_selector(target_level)
+

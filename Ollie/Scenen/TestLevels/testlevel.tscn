@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://vjd6lfvw1wmm"]
+[gd_scene load_steps=25 format=3 uid="uid://vjd6lfvw1wmm"]
 
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="1_p6d7b"]
 [ext_resource type="Texture2D" uid="uid://l8ayrglej43f" path="res://Free/Terrain/Terrain (16x16).png" id="2_gkgb0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bu10yqrx5m5uj" path="res://Objekte/GoldCoin.tscn" id="4_osa7g"]
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="5_jyfnp"]
 [ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Objekte/Portal_Goal.tscn" id="6_jrohl"]
+[ext_resource type="PackedScene" uid="uid://yklfagd5rq3i" path="res://Objekte/transition.tscn" id="6_yg5lj"]
 [ext_resource type="Script" path="res://Scenen/Main_Scene.gd" id="8_7bxpl"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="8_qpw2p"]
 [ext_resource type="PackedScene" uid="uid://lo6rj8ytakga" path="res://Objekte/spawn_point.tscn" id="8_siggn"]
@@ -538,6 +539,9 @@ position = Vector2(92, 510)
 position = Vector2(-24, -9)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
+
+[node name="Transition" parent="SceneObjects/Ollie/Camera2D" instance=ExtResource("6_yg5lj")]
+visible = false
 
 [node name="Portals_and_Spawns" type="Node" parent="SceneObjects"]
 
