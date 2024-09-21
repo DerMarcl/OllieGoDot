@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cfru6sy4srs3h"]
+[gd_scene load_steps=27 format=3 uid="uid://cfru6sy4srs3h"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_phtki"]
 [ext_resource type="PackedScene" uid="uid://4b0rkrqlxopm" path="res://PauseMenü.tscn" id="2_f30fp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://by6gphan5prm6" path="res://AssetPacks/Jungle Asset Pack/jungle tileset/jungle tileset.png" id="4_kcnrj"]
 [ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Objekte/Portal_Goal.tscn" id="5_cavnb"]
 [ext_resource type="Texture2D" uid="uid://bwokdeuynjg4c" path="res://AssetPacks/Jungle Asset Pack/parallax background/plx-1.png" id="7_85hjf"]
+[ext_resource type="AudioStream" uid="uid://bmrjfdivqncbw" path="res://Sounds/Pixel_Art_Games_Music_Pack_Volume_1_Track_5_Gameplay_Ambience.mp3" id="7_j4u86"]
 [ext_resource type="Texture2D" uid="uid://cj7y6br132qdn" path="res://AssetPacks/Jungle Asset Pack/parallax background/plx-2.png" id="8_sv0t6"]
 [ext_resource type="Texture2D" uid="uid://cqk52tefg265k" path="res://AssetPacks/Jungle Asset Pack/parallax background/plx-3.png" id="9_cmpee"]
 [ext_resource type="Texture2D" uid="uid://17rkrjw46bw" path="res://AssetPacks/Jungle Asset Pack/parallax background/plx-4.png" id="10_23sgv"]
@@ -1739,6 +1740,11 @@ offset_left = -243.0
 offset_top = -370.0
 offset_right = -243.0
 offset_bottom = -370.0
+
+[node name="BGM" type="AudioStreamPlayer" parent="SceneObjects/Ollie"]
+stream = ExtResource("7_j4u86")
+volume_db = -23.0
+autoplay = true
 
 [node name="Collectables" type="Node" parent="SceneObjects"]
 

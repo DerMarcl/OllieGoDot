@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bu10yqrx5m5uj"]
+[gd_scene load_steps=12 format=3 uid="uid://bu10yqrx5m5uj"]
 
 [ext_resource type="Script" path="res://Skripte/GoldCoin.gd" id="1_6jlun"]
 [ext_resource type="Texture2D" uid="uid://dvcolr2aue6ct" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/01.png" id="2_ewmmd"]
 [ext_resource type="Texture2D" uid="uid://gupnm3ubi611" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/02.png" id="3_d2ify"]
 [ext_resource type="Texture2D" uid="uid://co8vcbambyphl" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/03.png" id="4_mvte7"]
 [ext_resource type="Texture2D" uid="uid://c3tia14m0hfgr" path="res://AssetPacks/Treasure Hunters/Pirate Treasure/Sprites/Gold Coin/04.png" id="5_ycggg"]
-[ext_resource type="AudioStream" uid="uid://cd22lhcl1qwod" path="res://Sounds/Coin_sound.wav" id="6_d8yih"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xrlw"]
 atlas = ExtResource("2_ewmmd")
@@ -60,9 +59,5 @@ frame_progress = 0.628481
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_g2dul")
-
-[node name="coin_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_d8yih")
-volume_db = -6.74
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

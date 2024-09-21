@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://qr3oe7s3ghkl" path="res://AssetPacks/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="5_0dmlq"]
 [ext_resource type="Texture2D" uid="uid://driwawjscceq3" path="res://AssetPacks/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="6_0atny"]
 [ext_resource type="Texture2D" uid="uid://5kky6xhbkmg6" path="res://Free/Pixel icons and Game controller/Icons/Heart.png" id="8_48wt5"]
-[ext_resource type="Script" path="res://Scenen/Pause.gd" id="9_70btx"]
 [ext_resource type="PackedScene" uid="uid://r4r0htvmigi7" path="res://Objekte/Portal_Goal.tscn" id="9_xgh4l"]
 [ext_resource type="PackedScene" uid="uid://dg3h6a6hjnsm3" path="res://Objekte/red_potion.tscn" id="11_1ae6a"]
 [ext_resource type="PackedScene" uid="uid://lo6rj8ytakga" path="res://Objekte/spawn_point.tscn" id="11_6igvt"]
@@ -21,8 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://lyrqkf2wdof6" path="res://Objekte/trigger_heap.tscn" id="13_a77da"]
 [ext_resource type="PackedScene" uid="uid://yo600t536ie7" path="res://Objekte/target.tscn" id="14_g1uaq"]
 [ext_resource type="PackedScene" uid="uid://b5itj6h1my1vc" path="res://Objekte/purple_lightning.tscn" id="15_fatrt"]
+[ext_resource type="PackedScene" uid="uid://4b0rkrqlxopm" path="res://PauseMenü.tscn" id="16_o6nmb"]
 [ext_resource type="AudioStream" uid="uid://dj8x2imiwveob" path="res://Sounds/Platformer_Games_Volume_1_Track_7_Gameplay_Ambience.mp3" id="17_dtqpv"]
 [ext_resource type="PackedScene" uid="uid://5blwshmkciw8" path="res://Objekte/Hourglass.tscn" id="22_68gkd"]
+[ext_resource type="Script" path="res://Objekte/Hourglass.gd" id="24_n5mh7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("3_k4rpm")
@@ -490,9 +491,6 @@ sources/0 = SubResource("TileSetAtlasSource_rw3bd")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an831"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y74j"]
-bg_color = Color(0, 0, 0, 1)
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_erjl0"]
 
 [node name="Node" type="Node"]
@@ -591,15 +589,15 @@ position_smoothing_speed = 15.0
 editor_draw_limits = true
 
 [node name="Transition" parent="SceneObjects/Ollie/Camera2D" instance=ExtResource("11_lav35")]
-offset_left = 91.0
-offset_top = -55.0
-offset_right = 91.0
-offset_bottom = -55.0
+offset_left = 302.0
+offset_top = -395.0
+offset_right = 302.0
+offset_bottom = -395.0
 
 [node name="Background Music level1" type="AudioStreamPlayer2D" parent="SceneObjects/Ollie"]
 position = Vector2(-75, -495)
 stream = ExtResource("17_dtqpv")
-volume_db = -12.424
+volume_db = -23.0
 autoplay = true
 
 [node name="Collectables" type="Node" parent="SceneObjects"]
@@ -777,63 +775,7 @@ layout_mode = 2
 texture = ExtResource("8_48wt5")
 expand_mode = 2
 
-[node name="Pause" type="Node" parent="UI"]
-script = ExtResource("9_70btx")
-
-[node name="PausePanel" type="Panel" parent="UI/Pause"]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="UI/Pause/PausePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -179.0
-offset_top = -109.0
-offset_right = 179.0
-offset_bottom = 109.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "PAUSIERT"
-horizontal_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause/PausePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -239.0
-offset_top = -20.0
-offset_right = 248.0
-offset_bottom = 146.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 15
-
-[node name="Resume" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_3y74j")
-text = "Zurück"
-
-[node name="MainMenu" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_3y74j")
-text = "Hauptmenü"
+[node name="Pause2" parent="UI" instance=ExtResource("16_o6nmb")]
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -938,10 +880,10 @@ position = Vector2(7090, 321)
 [node name="Purple_Lightning2" parent="." instance=ExtResource("15_fatrt")]
 position = Vector2(7090, 79)
 
-[node name="Node2D" parent="." instance=ExtResource("22_68gkd")]
-position = Vector2(5785, -897)
+[node name="Hourglass" parent="." instance=ExtResource("22_68gkd")]
+position = Vector2(5812, -907)
+script = ExtResource("24_n5mh7")
+Hourglass_number = 1
 
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Hourglass" to="Hourglass" method="_on_body_entered"]

@@ -14,6 +14,7 @@ var knockback = false
 var timer = false
 var in_portal = true
 var current_portal = null
+var transition
 
 func jump():
 	velocity.y = jump_force
@@ -27,7 +28,9 @@ func jump_slide(x):
 
 func _ready():
 	add_to_group("Player")
+	call_deferred("_find_transition")
 	$Knockback_Timer.one_shot = true
+	
 	
 func _physics_process(delta: float) -> void:
 	is_in_air = not is_on_floor()
@@ -50,3 +53,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_knockback_timer_timeout():
 	timer = false
+
+func _find_transition():
+	var scene_objects = get_tree().current_scene.get_node("SceneObjects")
+	var ollie_object = scene_objects.get_node("Ollie")
+	var camera_object = ollie_object.get_node("Camera2D")
+	transition = camera_object.get_node("Transition")
+	transition.FadeIn()

@@ -69,7 +69,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1tn5"]
-size = Vector2(184, 189)
+size = Vector2(119, 189)
 
 [node name="DinoRider" type="CharacterBody2D"]
 script = ExtResource("1_o4w0g")
@@ -82,7 +82,7 @@ autoplay = "default"
 frame_progress = 0.662343
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -94.5)
+position = Vector2(12.5, -94.5)
 shape = SubResource("RectangleShape2D_s1tn5")
 
 [node name="Knockback_Timer" type="Timer" parent="."]
