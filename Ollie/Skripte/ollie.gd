@@ -168,7 +168,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if direction != 0 and is_on_floor():
-		var isLeft = velocity.x < 0
+		var isLeft = direction < 0
 		sprite_2d.flip_h = isLeft 
 		cur_direction = direction
 	

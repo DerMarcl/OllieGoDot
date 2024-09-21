@@ -501,9 +501,10 @@ texture_filter = 1
 position = Vector2(-24, -6)
 scale = Vector2(0.625, 0.605469)
 sprite_frames = SubResource("SpriteFrames_1arcn")
-animation = &"Dino_Riding"
+animation = &"BigBonk"
 autoplay = "default"
-frame_progress = 0.1458
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-24.5, -11.5)

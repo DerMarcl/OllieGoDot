@@ -22,6 +22,7 @@ func _on_resume_pressed():
 
 func _on_main_menu_pressed():
 	get_tree().paused = false
+	GameManager.reset_on_Level_end()
 	get_tree().change_scene_to_file("res://Scenen/TestLevels/LevelOverworld.tscn")
 
 func _on_hauptmenu_pressed():
