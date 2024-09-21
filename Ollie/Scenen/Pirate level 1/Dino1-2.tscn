@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://drn7hj7yjx4xb" path="res://Objekte/toggleBlock2x2Grass.tscn" id="17_qqawh"]
 [ext_resource type="PackedScene" uid="uid://dfa3glkxp66pl" path="res://Objekte/Raptor.tscn" id="18_jmiye"]
 [ext_resource type="PackedScene" uid="uid://5blwshmkciw8" path="res://Objekte/Hourglass.tscn" id="25_0xy52"]
-[ext_resource type="PackedScene" uid="uid://gyyrrf6j02na" path="res://Objekte/Caveman_potion.tscn" id="25_vkjte"]
+[ext_resource type="PackedScene" path="res://Objekte/Caveman_potion.tscn" id="25_vkjte"]
 [ext_resource type="Script" path="res://Objekte/HourglassLevel.gd" id="27_7omxq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]

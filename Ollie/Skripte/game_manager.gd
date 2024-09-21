@@ -100,4 +100,7 @@ func is_despawned(object_name: String) -> bool:
 	var unique_id = object_name + "_" + str(current_level_id)  # Combine name and level ID
 	return unique_id in despawned_objects
 
-
+func reset_on_Level_end():
+	Global.cur_power = PossiblePowers.NORMAL
+	despawned_objects.clear()
+	

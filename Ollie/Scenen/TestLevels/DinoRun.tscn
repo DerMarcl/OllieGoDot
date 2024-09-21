@@ -1637,6 +1637,7 @@ spawn_index = 2
 [node name="Portal1" parent="SceneObjects/Portals_and_Spawns" instance=ExtResource("5_p6pn2")]
 position = Vector2(14402, 403)
 target_level = 10
+ends_level = true
 
 [node name="Ollie" parent="SceneObjects" instance=ExtResource("4_xd40h")]
 position = Vector2(-272, 550)

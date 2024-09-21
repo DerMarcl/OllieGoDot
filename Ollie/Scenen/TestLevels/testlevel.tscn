@@ -753,6 +753,6 @@ toggle_Event = "Test_platform"
 position = Vector2(145, 575)
 event_to_trigger = "Test_platform"
 
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]

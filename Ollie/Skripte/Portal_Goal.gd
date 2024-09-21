@@ -3,7 +3,7 @@ extends Area2D
 @export var target_level : int = 0
 @export var on_touch_transition : bool = true
 @export var target_spawnpoint: int = 0
-@export var delete_powerup = false
+@export var ends_level = false
 var transition
 
 
@@ -54,7 +54,7 @@ func level_transition():
 func _on_fade_out_timer_timeout():
 	Global.cur_coins = 0
 	Global.target_spawnpoint = target_spawnpoint
-	if delete_powerup:
-		Global.cur_power = GameManager.PossiblePowers.NORMAL
+	if ends_level:
+		GameManager.reset_on_Level_end()
 	GameManager.level_selector(target_level)
 
