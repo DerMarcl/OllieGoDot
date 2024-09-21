@@ -204,16 +204,10 @@ func shoot_bullet():
 	$gun_out_timer.start()
 	
 func club_slash():
-	print("smash")
 	$hitbox_Timer_Bonk.start()
 	does_spcial_action = true
 	sprite_2d.animation = "BigBonk"
 	sprite_2d.play()
-
-#depricated
-#func _on_sprite_2d_animation_looped():
-	#if sprite_2d.animation == "BigBonk" or sprite_2d.animation == "Zapped":
-		#does_spcial_action = false
 	
 func _on_sprite_2d_animation_finished():
 	if sprite_2d.animation == "BigBonk" or sprite_2d.animation == "Zapped":
@@ -225,11 +219,9 @@ func _on_sprite_2d_animation_finished():
 		sprite_2d.play()
 
 func _on_hitbox_timer_bonk_timeout():
-	print("timeout")
 	var SlashScene = load("res://Objekte/Slash.tscn")
 	var Slash = SlashScene.instantiate()
 	Slash.global_position = global_position
-	
 	Slash.direction = cur_direction
 	get_parent().add_child(Slash)
 
