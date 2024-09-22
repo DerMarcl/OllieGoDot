@@ -620,7 +620,7 @@ position = Vector2(4641, -509)
 spawn_index = 3
 
 [node name="SpawnPoint4" parent="SceneObjects/Portals_and_Spawns" instance=ExtResource("11_6igvt")]
-position = Vector2(4765, -1116)
+position = Vector2(4765, -1136)
 spawn_index = 4
 
 [node name="SpawnPoint5" parent="SceneObjects/Portals_and_Spawns" instance=ExtResource("11_6igvt")]
