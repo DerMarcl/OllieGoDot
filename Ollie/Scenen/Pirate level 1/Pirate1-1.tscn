@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://duxnp7s40g5eh"]
+[gd_scene load_steps=30 format=3 uid="uid://duxnp7s40g5eh"]
 
 [ext_resource type="Script" path="res://Skripte/game_manager.gd" id="1_aj1by"]
 [ext_resource type="Texture2D" uid="uid://0tikxfiwhjn1" path="res://Free/Background/Green.png" id="2_f7mhp"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://dj8x2imiwveob" path="res://Sounds/Platformer_Games_Volume_1_Track_7_Gameplay_Ambience.mp3" id="17_dtqpv"]
 [ext_resource type="PackedScene" uid="uid://5blwshmkciw8" path="res://Objekte/Hourglass.tscn" id="22_68gkd"]
 [ext_resource type="Script" path="res://Objekte/HourglassLevel.gd" id="24_xd2tv"]
+[ext_resource type="PackedScene" uid="uid://d28n3vnuj0xol" path="res://AI Guide/Guide.tscn" id="25_b3rsj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rw3bd"]
 texture = ExtResource("3_k4rpm")
@@ -883,6 +884,9 @@ position = Vector2(7090, 79)
 [node name="Hourglass" parent="." instance=ExtResource("22_68gkd")]
 position = Vector2(5812, -907)
 script = ExtResource("24_xd2tv")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("25_b3rsj")]
+position = Vector2(1590, 333)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Hourglass" to="Hourglass" method="_on_body_entered"]
