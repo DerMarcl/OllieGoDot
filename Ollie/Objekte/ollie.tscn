@@ -489,7 +489,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1s6vf"]
 size = Vector2(43, 127)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
 position = Vector2(2, -53)
 collision_layer = 3

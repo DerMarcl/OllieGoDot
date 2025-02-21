@@ -32,8 +32,10 @@ var grace_timer = 0.0 # tracks how long since last wall jump
 var in_portal = false #track if the player is in the portal area
 var transition
 var current_portal: Area2D = null
+var wallslide = false
 
 var power_state: GameManager.PossiblePowers = GameManager.PossiblePowers.NORMAL
+
 
 func jump():
 	velocity.y = JUMP_VELOCITY
@@ -77,7 +79,7 @@ func _physics_process(delta):
 	var adjusted_acceleration = acceleration / inertia_multiplier
 	var adjusted_deceleration = deceleration / inertia_multiplier
 	
-	var wallslide = is_on_wall_only() and (has_walljump or has_backwards_walljump)
+	wallslide = is_on_wall_only() and (has_walljump or has_backwards_walljump)
 	# Handle coyote time
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME # Reset the coyote timer if on the ground
@@ -141,17 +143,9 @@ func _physics_process(delta):
 	
 	# Handle jump.
 	
-	if Input.is_action_just_pressed("jump") and not does_spcial_action and ((is_on_floor() or coyote_timer > 0.0) or (is_on_wall_only() and direction and (has_walljump or has_backwards_walljump))):
-		velocity.y = JUMP_VELOCITY 
-		sfx_jump.play()
-		coyote_timer = 0.0 # Reset the coyote timer after a jump
-		
-		if wallslide:
-			velocity.x = -direction * SPEED 
-			sprite_2d.flip_h = (velocity.x < 0)
-			cur_direction = direction
-			has_backwards_walljump = false
-			grace_timer = WALLJUMP_GRACE
+	# if Input.is_action_just_pressed("jump"):
+		#perform_jump()
+
 			
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -237,9 +231,76 @@ func Zap_powerup():
 	sprite_2d.animation = "Zapped"
 	sprite_2d.play()
 
+
+#ai functions:
+
 func set_direction(new_direction : int):
 	if new_direction in [-1, 0, 1]:
 		direction = new_direction
 	else:
 		print("Invalid direction. Must be -1, 0, or 1.")
 	
+
+func perform_jump():
+	if not does_spcial_action and ((is_on_floor() or coyote_timer > 0.0) or (is_on_wall_only() and direction and (has_walljump or has_backwards_walljump))):
+		velocity.y = JUMP_VELOCITY 
+		sfx_jump.play()
+		coyote_timer = 0.0  # Reset the coyote timer after a jump
+		
+		if wallslide:
+			velocity.x = -direction * SPEED 
+			$Sprite2D.flip_h = (velocity.x < 0)
+			cur_direction = direction
+			has_backwards_walljump = false
+			grace_timer = WALLJUMP_GRACE
+
+#ai Specific Variables
+var is_ground_ahead = true
+var is_obstacle_in_front = false
+var is_ceiling_above = false
+var is_jump_possible = true
+
+
+func _on_ground_check_body_entered(body):
+	is_ground_ahead = true
+	print("ground true")
+
+
+
+func _on_ground_check_body_exited(body):
+	if $Ground_Check.get_overlapping_bodies().size() <= 1:
+		is_ground_ahead = false
+		print("ground false")
+
+
+func _on_front_check_body_entered(body):
+	is_obstacle_in_front = true
+	print("front true")
+
+
+func _on_front_check_body_exited(body):
+	if $FrontCheck.get_overlapping_bodies().size() <= 1:
+		is_obstacle_in_front = false
+		print("front false")
+
+
+func _on_cieling_check_body_entered(body):
+	is_ceiling_above = true
+	print("ceiling true")
+
+
+func _on_cieling_check_body_exited(body):
+	if $Cieling_check.get_overlapping_bodies().size() <= 1:
+		is_ceiling_above = false
+		print("ceiling false")
+
+
+func _on_jump_possible_check_body_entered(body):
+	is_jump_possible = false
+	print("jumparc true")
+
+
+func _on_jump_possible_check_body_exited(body):
+	if $JumpPossibleCheck.get_overlapping_bodies().size() <= 1:
+		is_ceiling_above = true
+		print("jumparc false")

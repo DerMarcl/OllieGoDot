@@ -566,7 +566,7 @@ scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_e526c")
 format = 2
 
-[node name="TileMap Pirate" type="TileMap" parent="SceneObjects"]
+[node name="TileMap Pirate" type="TileMap" parent="SceneObjects" groups=["tiles"]]
 z_index = 1
 texture_filter = 1
 scale = Vector2(3, 3)

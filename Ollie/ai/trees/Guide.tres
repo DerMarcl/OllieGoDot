@@ -1,7 +1,9 @@
-[gd_resource type="BehaviorTree" load_steps=10 format=3 uid="uid://sheqtykhjmlc"]
+[gd_resource type="BehaviorTree" load_steps=19 format=3 uid="uid://sheqtykhjmlc"]
 
 [ext_resource type="Script" path="res://ai/tasks/choose_Pos.gd" id="1_8mn74"]
 [ext_resource type="Script" path="res://ai/tasks/move_to_pos.gd" id="2_h1v8x"]
+[ext_resource type="Script" path="res://ai/tasks/find_target.gd" id="3_6tahy"]
+[ext_resource type="Script" path="res://ai/tasks/move_to_target.gd" id="4_ba3vm"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_x6flq"]
 
@@ -28,8 +30,35 @@ duration = 2.0
 custom_name = "Random Move sequence"
 children = [SubResource("BTConsolePrint_c8g0w"), SubResource("BTAction_o4ugf"), SubResource("BTAction_4tbiv"), SubResource("BTWait_u8hht")]
 
-[sub_resource type="BTSelector" id="BTSelector_anesu"]
+[sub_resource type="BTProbability" id="BTProbability_k0cb3"]
 children = [SubResource("BTSequence_bq2p8")]
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_r2lhg"]
+text = "Chase the player"
+
+[sub_resource type="BTAction" id="BTAction_2uqo2"]
+script = ExtResource("3_6tahy")
+group = &"player"
+target_var = &"target"
+
+[sub_resource type="BTAction" id="BTAction_224vk"]
+script = ExtResource("4_ba3vm")
+target_var = &"target"
+tolerance = 100
+
+[sub_resource type="BTWait" id="BTWait_rohhy"]
+duration = 2.0
+
+[sub_resource type="BTSequence" id="BTSequence_jxuk5"]
+custom_name = "Chase player"
+children = [SubResource("BTConsolePrint_r2lhg"), SubResource("BTAction_2uqo2"), SubResource("BTAction_224vk"), SubResource("BTWait_rohhy")]
+
+[sub_resource type="BTProbability" id="BTProbability_t03bk"]
+run_chance = 1.0
+children = [SubResource("BTSequence_jxuk5")]
+
+[sub_resource type="BTSelector" id="BTSelector_anesu"]
+children = [SubResource("BTProbability_k0cb3"), SubResource("BTProbability_t03bk")]
 
 [resource]
 blackboard_plan = SubResource("BlackboardPlan_x6flq")

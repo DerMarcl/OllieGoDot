@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://d28n3vnuj0xol"]
+[gd_scene load_steps=74 format=3 uid="uid://d28n3vnuj0xol"]
 
 [ext_resource type="Script" path="res://AI Guide/Guide.gd" id="1_tbtre"]
 [ext_resource type="Texture2D" uid="uid://dkmbojy8yy8ni" path="res://Sprites/OllieBonk_1.png" id="2_h3pm4"]
@@ -492,6 +492,18 @@ size = Vector2(43, 127)
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_oxvwv"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i5y68"]
+size = Vector2(15, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jla3a"]
+size = Vector2(15, 127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jujme"]
+size = Vector2(42, 202.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgajb"]
+size = Vector2(225, 9.75)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(2, -53)
@@ -524,8 +536,68 @@ volume_db = -14.322
 behavior_tree = ExtResource("9_n5pht")
 blackboard_plan = SubResource("BlackboardPlan_oxvwv")
 
+[node name="Ground_Check" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground_Check"]
+position = Vector2(24.5, 63)
+shape = SubResource("RectangleShape2D_i5y68")
+
+[node name="Ground_Check2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground_Check2"]
+position = Vector2(-73.5, 63)
+shape = SubResource("RectangleShape2D_i5y68")
+
+[node name="FrontCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontCheck"]
+position = Vector2(24.5, -11.5)
+shape = SubResource("RectangleShape2D_jla3a")
+
+[node name="FrontCheck2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontCheck2"]
+position = Vector2(-73.5, -11.5)
+shape = SubResource("RectangleShape2D_jla3a")
+
+[node name="Cieling_check" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cieling_check"]
+position = Vector2(-24, -183.563)
+shape = SubResource("RectangleShape2D_jujme")
+
+[node name="JumpPossibleCheck" type="Area2D" parent="." groups=["guide"]]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="JumpPossibleCheck"]
+position = Vector2(109.5, -200)
+shape = SubResource("RectangleShape2D_mgajb")
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="animation_finished" from="Sprite2D" to="." method="_on_sprite_2d_animation_finished"]
 [connection signal="animation_looped" from="Sprite2D" to="." method="_on_sprite_2d_animation_looped"]
 [connection signal="timeout" from="hitbox_Timer_Bonk" to="." method="_on_hitbox_timer_bonk_timeout"]
 [connection signal="timeout" from="gun_out_timer" to="." method="_on_gun_out_timer_timeout"]
+[connection signal="area_entered" from="Ground_Check" to="." method="_on_ground_check_area_entered"]
+[connection signal="area_exited" from="Ground_Check" to="." method="_on_ground_check_area_exited"]
+[connection signal="body_entered" from="Ground_Check" to="." method="_on_ground_check_body_entered"]
+[connection signal="body_exited" from="Ground_Check" to="." method="_on_ground_check_body_exited"]
+[connection signal="area_entered" from="Ground_Check2" to="." method="_on_ground_check_area_entered"]
+[connection signal="area_exited" from="Ground_Check2" to="." method="_on_ground_check_area_exited"]
+[connection signal="body_entered" from="Ground_Check2" to="." method="_on_ground_check_body_entered"]
+[connection signal="body_exited" from="Ground_Check2" to="." method="_on_ground_check_body_exited"]
+[connection signal="area_entered" from="FrontCheck" to="." method="_on_front_check_area_entered"]
+[connection signal="area_exited" from="FrontCheck" to="." method="_on_front_check_area_exited"]
+[connection signal="body_entered" from="FrontCheck" to="." method="_on_front_check_body_entered"]
+[connection signal="body_exited" from="FrontCheck" to="." method="_on_front_check_body_exited"]
+[connection signal="area_entered" from="FrontCheck2" to="." method="_on_front_check_area_entered"]
+[connection signal="area_exited" from="FrontCheck2" to="." method="_on_front_check_area_exited"]
+[connection signal="body_entered" from="FrontCheck2" to="." method="_on_front_check_body_entered"]
+[connection signal="body_exited" from="FrontCheck2" to="." method="_on_front_check_body_exited"]
+[connection signal="area_entered" from="Cieling_check" to="." method="_on_cieling_check_area_entered"]
+[connection signal="area_exited" from="Cieling_check" to="." method="_on_cieling_check_area_exited"]
+[connection signal="body_entered" from="Cieling_check" to="." method="_on_cieling_check_body_entered"]
+[connection signal="body_exited" from="Cieling_check" to="." method="_on_cieling_check_body_exited"]
+[connection signal="area_entered" from="JumpPossibleCheck" to="." method="_on_jump_possible_check_area_entered"]
+[connection signal="area_exited" from="JumpPossibleCheck" to="." method="_on_jump_possible_check_area_exited"]
+[connection signal="body_entered" from="JumpPossibleCheck" to="." method="_on_jump_possible_check_body_entered"]
+[connection signal="body_exited" from="JumpPossibleCheck" to="." method="_on_jump_possible_check_body_exited"]
