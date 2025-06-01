@@ -1,9 +1,13 @@
-[gd_resource type="BehaviorTree" load_steps=19 format=3 uid="uid://sheqtykhjmlc"]
+[gd_resource type="BehaviorTree" load_steps=34 format=3 uid="uid://sheqtykhjmlc"]
 
-[ext_resource type="Script" path="res://ai/tasks/choose_Pos.gd" id="1_8mn74"]
-[ext_resource type="Script" path="res://ai/tasks/move_to_pos.gd" id="2_h1v8x"]
-[ext_resource type="Script" path="res://ai/tasks/find_target.gd" id="3_6tahy"]
-[ext_resource type="Script" path="res://ai/tasks/move_to_target.gd" id="4_ba3vm"]
+[ext_resource type="Script" uid="uid://b6pj5s5adnlvi" path="res://ai/tasks/choose_Pos.gd" id="1_8mn74"]
+[ext_resource type="Script" uid="uid://bjgwownrg0hrb" path="res://ai/tasks/move_to_pos.gd" id="2_h1v8x"]
+[ext_resource type="Script" uid="uid://bkr6sfvhwt4qx" path="res://ai/tasks/find_target.gd" id="3_6tahy"]
+[ext_resource type="Script" uid="uid://b0g6qxj542pwa" path="res://ai/tasks/RequestPathToTarget.gd" id="4_xttn3"]
+[ext_resource type="PackedScene" uid="uid://cwlbwc546no3b" path="res://AI Guide/marker_helper_node.tscn" id="6_j8luk"]
+[ext_resource type="Script" uid="uid://dlbvch0jtlos6" path="res://ai/tasks/MoveTowardsNextPoint.gd" id="6_qr4pm"]
+[ext_resource type="Script" uid="uid://b1tc18t78k5gp" path="res://ai/tasks/Show_markers.gd" id="7_50ni7"]
+[ext_resource type="Script" uid="uid://1q52526llmv6" path="res://ai/tasks/AdvanceToNextPoint.gd" id="8_qr4pm"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_x6flq"]
 
@@ -31,6 +35,7 @@ custom_name = "Random Move sequence"
 children = [SubResource("BTConsolePrint_c8g0w"), SubResource("BTAction_o4ugf"), SubResource("BTAction_4tbiv"), SubResource("BTWait_u8hht")]
 
 [sub_resource type="BTProbability" id="BTProbability_k0cb3"]
+run_chance = 0.1
 children = [SubResource("BTSequence_bq2p8")]
 
 [sub_resource type="BTConsolePrint" id="BTConsolePrint_r2lhg"]
@@ -41,17 +46,63 @@ script = ExtResource("3_6tahy")
 group = &"player"
 target_var = &"target"
 
-[sub_resource type="BTAction" id="BTAction_224vk"]
-script = ExtResource("4_ba3vm")
+[sub_resource type="BTAction" id="BTAction_50ni7"]
+script = ExtResource("4_xttn3")
 target_var = &"target"
-tolerance = 100
+path_var = &"path"
+next_point_var = &"next_point"
+
+[sub_resource type="BTAction" id="BTAction_j8luk"]
+script = ExtResource("8_qr4pm")
+path_var = &"path"
+next_point_var = &"next_point"
+previous_point_var = &"previous_point"
+
+[sub_resource type="BTAction" id="BTAction_uiwkv"]
+script = ExtResource("6_qr4pm")
+target_var = &"next_point"
+tolerance = 16.0
+jump_threshold = 25.0
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_xttn3"]
+text = "in the sequence"
+
+[sub_resource type="BTSequence" id="BTSequence_ce2tk"]
+children = [SubResource("BTAction_j8luk"), SubResource("BTAction_uiwkv"), SubResource("BTConsolePrint_xttn3")]
+
+[sub_resource type="BTRepeatUntilFailure" id="BTRepeatUntilFailure_qr4pm"]
+children = [SubResource("BTSequence_ce2tk")]
+
+[sub_resource type="BTAction" id="BTAction_qr4pm"]
+script = ExtResource("4_xttn3")
+target_var = &"target"
+path_var = &"path"
+next_point_var = &"next_point"
+
+[sub_resource type="BTAction" id="BTAction_ce2tk"]
+script = ExtResource("7_50ni7")
+path_var = &"path"
+marker_scene = ExtResource("6_j8luk")
+marker_parent_path = NodePath("MarkerContainer")
+
+[sub_resource type="BTWait" id="BTWait_xttn3"]
+duration = 0.5
+
+[sub_resource type="BTSequence" id="BTSequence_j8luk"]
+children = [SubResource("BTAction_qr4pm"), SubResource("BTAction_ce2tk"), SubResource("BTWait_xttn3")]
+
+[sub_resource type="BTRepeatUntilFailure" id="BTRepeatUntilFailure_50ni7"]
+children = [SubResource("BTSequence_j8luk")]
+
+[sub_resource type="BTParallel" id="BTParallel_uiwkv"]
+children = [SubResource("BTRepeatUntilFailure_qr4pm"), SubResource("BTRepeatUntilFailure_50ni7")]
 
 [sub_resource type="BTWait" id="BTWait_rohhy"]
 duration = 2.0
 
 [sub_resource type="BTSequence" id="BTSequence_jxuk5"]
 custom_name = "Chase player"
-children = [SubResource("BTConsolePrint_r2lhg"), SubResource("BTAction_2uqo2"), SubResource("BTAction_224vk"), SubResource("BTWait_rohhy")]
+children = [SubResource("BTConsolePrint_r2lhg"), SubResource("BTAction_2uqo2"), SubResource("BTAction_50ni7"), SubResource("BTParallel_uiwkv"), SubResource("BTWait_rohhy")]
 
 [sub_resource type="BTProbability" id="BTProbability_t03bk"]
 run_chance = 1.0

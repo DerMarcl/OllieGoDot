@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfuxmrokynmuv"]
+
+[ext_resource type="Texture2D" uid="uid://c1xubjovn6bh0" path="res://Sprites/GraphPoint.png" id="1_ak6eh"]
+[ext_resource type="Script" uid="uid://dir10po85g502" path="res://AI Guide/marker_node.gd" id="1_lgckt"]
+
+[node name="Marker Node" type="Node2D"]
+script = ExtResource("1_lgckt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_ak6eh")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwlbwc546no3b"]
+
+[ext_resource type="Script" uid="uid://bl5tdvct5aaxq" path="res://AI Guide/marker_helper_node.gd" id="1_uasyg"]
+
+[node name="Marker Helper Node" type="Node2D"]
+script = ExtResource("1_uasyg")

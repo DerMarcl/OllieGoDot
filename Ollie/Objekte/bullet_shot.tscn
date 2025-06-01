@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyx2glqeawj6n"]
 
-[ext_resource type="Script" path="res://Skripte/bullet_shot.gd" id="1_r3c7q"]
+[ext_resource type="Script" uid="uid://b8oeejvwbgbam" path="res://Skripte/bullet_shot.gd" id="1_r3c7q"]
 [ext_resource type="Texture2D" uid="uid://bf412ehfuaqkl" path="res://AssetPacks/Treasure Hunters/Shooter Traps/Sprites/Cannon/Cannon Ball Idle/1.png" id="2_6nht5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1e8q"]

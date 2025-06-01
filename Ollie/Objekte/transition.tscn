@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://yklfagd5rq3i"]
 
-[ext_resource type="Script" path="res://Objekte/transition.gd" id="1_lnhyh"]
+[ext_resource type="Script" uid="uid://p4onnd17kwxf" path="res://Objekte/transition.gd" id="1_lnhyh"]
 
 [sub_resource type="Gradient" id="Gradient_5k45o"]
 interpolation_mode = 1
@@ -69,8 +69,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g06s5"]
 _data = {
-"FadeIn": SubResource("Animation_77hmy"),
-"FadeOut": SubResource("Animation_qtte7")
+&"FadeIn": SubResource("Animation_77hmy"),
+&"FadeOut": SubResource("Animation_qtte7")
 }
 
 [node name="Transition" type="Control"]

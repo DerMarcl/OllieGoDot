@@ -57,4 +57,3 @@ func _on_fade_out_timer_timeout():
 	if ends_level:
 		GameManager.reset_on_Level_end()
 	GameManager.level_selector(target_level)
-

@@ -162,7 +162,7 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, adjusted_deceleration * delta)
 	move_and_slide()
 	
-	if direction != 0 and is_on_floor():
+	if direction != 0 and is_on_floor() and direction != null:
 		var isLeft = direction < 0
 		sprite_2d.flip_h = isLeft 
 		cur_direction = direction
@@ -263,44 +263,44 @@ var is_jump_possible = true
 
 func _on_ground_check_body_entered(body):
 	is_ground_ahead = true
-	print("ground true")
+	
 
 
 
 func _on_ground_check_body_exited(body):
 	if $Ground_Check.get_overlapping_bodies().size() <= 1:
 		is_ground_ahead = false
-		print("ground false")
+		
 
 
 func _on_front_check_body_entered(body):
 	is_obstacle_in_front = true
-	print("front true")
+	
 
 
 func _on_front_check_body_exited(body):
 	if $FrontCheck.get_overlapping_bodies().size() <= 1:
 		is_obstacle_in_front = false
-		print("front false")
+		
 
 
 func _on_cieling_check_body_entered(body):
 	is_ceiling_above = true
-	print("ceiling true")
+	
 
 
 func _on_cieling_check_body_exited(body):
 	if $Cieling_check.get_overlapping_bodies().size() <= 1:
 		is_ceiling_above = false
-		print("ceiling false")
+		
 
 
 func _on_jump_possible_check_body_entered(body):
 	is_jump_possible = false
-	print("jumparc true")
+	
 
 
 func _on_jump_possible_check_body_exited(body):
 	if $JumpPossibleCheck.get_overlapping_bodies().size() <= 1:
 		is_ceiling_above = true
-		print("jumparc false")
+		

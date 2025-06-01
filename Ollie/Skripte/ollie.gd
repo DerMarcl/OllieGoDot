@@ -235,4 +235,3 @@ func Zap_powerup():
 	powerStateChange(GameManager.PossiblePowers.NORMAL)
 	sprite_2d.animation = "Zapped"
 	sprite_2d.play()
-

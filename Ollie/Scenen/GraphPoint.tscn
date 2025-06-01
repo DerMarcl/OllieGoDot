@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gw1bs7bcsxxq"]
+
+[ext_resource type="Texture2D" uid="uid://c1xubjovn6bh0" path="res://Sprites/GraphPoint.png" id="1_rp4s6"]
+
+[node name="GraphPoint" type="Sprite2D"]
+texture = ExtResource("1_rp4s6")
